@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'ptsans';
+    src: url('fonts/ptsans.eot');
+    src: url('fonts/ptsans.eot') format('embedded-opentype'),
+         url('fonts/ptsans.woff2') format('woff2'),
+         url('fonts/ptsans.woff') format('woff'),
+         url('fonts/ptsans.ttf') format('truetype'),
+         url('fonts/ptsans.svg#ptsans') format('svg');
+}
+
+@font-face {
+    font-family: 'ptsansbold';
+    src: url('fonts/ptsansbold.eot');
+    src: url('fonts/ptsansbold.eot') format('embedded-opentype'),
+         url('fonts/ptsansbold.woff2') format('woff2'),
+         url('fonts/ptsansbold.woff') format('woff'),
+         url('fonts/ptsansbold.ttf') format('truetype'),
+         url('fonts/ptsansbold.svg#ptsansbold') format('svg');
+}
+
+@font-face {
+    font-family: 'ptsansitalic';
+    src: url('fonts/ptsansitalic.eot');
+    src: url('fonts/ptsansitalic.eot') format('embedded-opentype'),
+         url('fonts/ptsansitalic.woff2') format('woff2'),
+         url('fonts/ptsansitalic.woff') format('woff'),
+         url('fonts/originalptsansitalic.ttf') format('truetype'),
+         url('fonts/ptsansitalic.svg#ptsansitalic') format('svg');
+}

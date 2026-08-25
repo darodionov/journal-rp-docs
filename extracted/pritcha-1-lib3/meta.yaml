@@ -1,0 +1,15 @@
+# Извлечено из дампа 2018-11-17_02-10_db_idrp.sql, таблица articlex, как есть
+id: 3
+url: "pritcha-1"
+type: 2
+pg_ttl: "Притча о добрых делах"
+pg_dsc: "Притча о добрых делах"
+anons: ""
+dt1_day: 0
+dt1_month: 0
+dt2_day: 0
+dt2_month: 0
+dt3_day: 0
+dt3_month: 0
+days_easter: null
+last_date: "2011-06-24 17:43:09"

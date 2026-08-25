@@ -1,0 +1,352 @@
+# Ссылки в статьях (body корпуса, 1523 статьи), по типам
+
+Источник: значения `href` из body. Дата: 2026-07-08. Дедуплицировано, в скобках - число вхождений.
+
+## 1. Внутренние ссылки на статьи КОРПУСА (-lib<id>)  (уник.целей 257, вхождений 395)
+- (66) id=923 type=17(корпус) url='dobrotolubie-izbrannoe-dlya-miryn' | Добротолюбие избранное для мирян
+- (65) id=61 type=1(корпус) url='dobrotolubie' | Купить добротолюбие в 5 томах
+- (3) id=1488 type=4(корпус) url='zhitiya-svyatih' | Николай, архиепископ Мирликийский, святитель и чудотворец | 
+- (3) id=514 type=4(корпус) url='zhitiya-svyatih' | Константин царь и Елена царица, равноапостольные | Жития свя
+- (3) id=1392 type=4(корпус) url='prepodobnye-roman-i-lupikin' | Роман и Лупикин, преподобные. Житие преподобных Романа и Луп
+- (2) id=659 type=4(корпус) url='zhitiya-svyatih' | Ольга, во святом крещении Елена, великая княгиня, равноапост
+- (2) id=111 type=4(корпус) url='zhitiya-svyatih' | Татьяна, мученица | Жития святых Дмитрия Ростовского
+- (2) id=1019 type=17(корпус) url='bogoslovstvovanie-dobrotolubie-izbrannoe-dlya-miryn' | Богословствование (состояние созерцания) | Добротолюбие избр
+- (1) id=59 type=1(корпус) url='tolkovanie-biblii' | Толковая Библия Лопухина - лучшее толкование Библии - Купить
+- (1) id=10 type=6(корпус) url='ivan-sergeevich-shmelev-biografiya' | Иван Шмелев. Биография Ивана Сергеевича Шмелева
+- (1) id=857 type=1(корпус) url='skachat-lestvitsa' | Лествица Иоанна Лествичника скачать бесплатно
+- (1) id=1047 type=18(корпус) url='pozdravleniya-s-imeninami-germana' | Поздравление с именинами Германа. Подарок для Германа
+- (1) id=1023 type=18(корпус) url='pozdravleniya-s-imeninami-aleksandra' | Поздравление с именинами Александра. Подарок для Александра
+- (1) id=1024 type=18(корпус) url='pozdravleniya-s-imeninami-alekseya' | Поздравление с именинами Алексея. Подарок для Алексея 
+- (1) id=1025 type=18(корпус) url='pozdravleniya-s-imeninami-anatoliya' | Поздравление с именинами Анатолия. Подарок для Анатолия
+- (1) id=1026 type=18(корпус) url='pozdravleniya-s-imeninami-andreya' | Поздравление с именинами Андрея. Подарок для Андрея
+- (1) id=1028 type=18(корпус) url='pozdravleniya-s-imeninami-antona' | Поздравление с именинами Антона. Подарок для Антона
+- (1) id=1031 type=18(корпус) url='pozdravleniya-s-imeninami-arsenii' | Поздравление с именинами Арсения. Подарок для Арсения
+- (1) id=1029 type=18(корпус) url='pozdravleniya-s-imeninami-arkadiya' | Поздравление с именинами Аркадия. Подарок для Аркадия 
+- (1) id=1032 type=18(корпус) url='pozdravleniya-s-imeninami-artema' | Поздравление с именинами Артема. Подарок для Артема
+- (1) id=1033 type=18(корпус) url='pozdravleniya-s-imeninami-borisa' | Поздравление с именинами Бориса. Подарок для Бориса
+- (1) id=1034 type=18(корпус) url='pozdravleniya-s-imeninami-valentina' | Поздравление с именинами Валентина. Подарок для Валентина
+- (1) id=1037 type=18(корпус) url='pozdravleniya-s-imeninami-vasiliya' | Поздравление с именинами Василия. Подарок для Василия
+- (1) id=1038 type=18(корпус) url='pozdravleniya-s-imeninami-viktora' | Поздравление с именинами Виктора. Подарок для Виктора
+- (1) id=1039 type=18(корпус) url='pozdravleniya-s-imeninami-vitaliya' | Поздравление с именинами Виталия. Подарок для Виталия
+- (1) id=1040 type=18(корпус) url='pozdravleniya-s-imeninami-vladimira' | Поздравление с именинами Владимира. Подарок для Владимира
+- (1) id=1041 type=18(корпус) url='pozdravleniya-s-imeninami-vsevoloda' | Поздравление с именинами Всеволода. Подарок для Всеволода
+- (1) id=1042 type=18(корпус) url='pozdravleniya-s-imeninami-gennadiya' | Поздравление с именинами Геннадия. Подарок для Геннадия
+- (1) id=1043 type=18(корпус) url='pozdravleniya-s-imeninami-georgiya' | Поздравление с именинами Георгия. Подарок для Георгия
+- (1) id=1049 type=18(корпус) url='pozdravleniya-s-imeninami-grigoriya' | Поздравление с именинами Григория. Подарок для Григория
+- (1) id=1050 type=18(корпус) url='pozdravleniya-s-imeninami-daniila' | Поздравление с именинами Даниила. Подарок для Даниила
+- (1) id=1053 type=18(корпус) url='pozdravleniya-s-imeninami-dmitriya' | Поздравление с именинами Дмитрия. Подарок для Дмитрия
+- (1) id=1052 type=18(корпус) url='pozdravleniya-s-imeninami-denisa' | Поздравление с именинами Дениса. Подарок для Дениса
+- (1) id=1054 type=18(корпус) url='pozdravleniya-s-imeninami-evgeniya' | Поздравление с именинами Евгения. Подарок для Евгения
+- (1) id=1081 type=18(корпус) url='pozdravleniya-s-imeninami-yakova' | Поздравление с именинами Якова. Подарок для Якова
+- (1) id=1056 type=18(корпус) url='pozdravleniya-s-imeninami-igorya' | Поздравление с именинами Игоря. Подарок для Игоря
+- (1) id=1057 type=18(корпус) url='pozdravleniya-s-imeninami-ilii' | Поздравление с именинами Ильи. Подарок для Ильи
+- (1) id=1055 type=18(корпус) url='pozdravleniya-s-imeninami-ivana' | Поздравление с именинами Ивана. Подарок для Ивана
+- (1) id=1058 type=18(корпус) url='pozdravleniya-s-imeninami-kirilla' | Поздравление с именинами Кирилла. Подарок для Кирилла
+- (1) id=1060 type=18(корпус) url='pozdravleniya-s-imeninami-konstantina' | Поздравление с именинами Константина. Подарок для Константин
+- (1) id=1061 type=18(корпус) url='pozdravleniya-s-imeninami-kuzmy' | Поздравление с именинами Кузьмы. Подарок для Кузьмы
+- (1) id=1062 type=18(корпус) url='pozdravleniya-s-imeninami-lavrentiya' | Поздравление с именинами Лаврентия. Подарок для Лаврентия
+- (1) id=1064 type=18(корпус) url='pozdravleniya-s-imeninami-lva' | Поздравление с именинами Льва. Подарок для Льва
+- (1) id=1063 type=18(корпус) url='pozdravleniya-s-imeninami-leonida' | Поздравление с именинами Леонида. Подарок для Леонида
+- (1) id=1065 type=18(корпус) url='pozdravleniya-s-imeninami-maksima' | Поздравление с именинами Максима. Подарок для Максима
+- (1) id=1066 type=18(корпус) url='pozdravleniya-s-imeninami-marka' | Поздравление с именинами Марка. Подарок для Марка
+- (1) id=1067 type=18(корпус) url='pozdravleniya-s-imeninami-matveya' | Поздравление с именинами Матвея. Подарок для Матвея
+- (1) id=1068 type=18(корпус) url='pozdravleniya-s-imeninami-mihaila' | Поздравление с именинами Михаила. Подарок для Михаила
+- (1) id=1069 type=18(корпус) url='pozdravleniya-s-imeninami-nikity' | Поздравление с именинами Никиты. Подарок для Никиты
+- (1) id=1070 type=18(корпус) url='pozdravleniya-s-imeninami-nikolaya' | Поздравление с именинами Николая. Подарок для Николая
+- (1) id=1071 type=18(корпус) url='pozdravleniya-s-imeninami-olega' | Поздравление с именинами Олега. Подарок для Олега
+- (1) id=992 type=18(корпус) url='pozdravleniya-s-imeninami-pavla' | Поздравление с именинами Павла. Подарок для Павла
+- (1) id=1072 type=18(корпус) url='pozdravleniya-s-imeninami-petra' | Поздравление с именинами Петра. Подарок для Петра
+- (1) id=1073 type=18(корпус) url='pozdravleniya-s-imeninami-romana' | Поздравление с именинами Романа. Подарок для Романа
+- (1) id=1074 type=18(корпус) url='pozdravleniya-s-imeninami-rostislava' | Поздравление с именинами Ростислава. Подарок для Ростислава
+- (1) id=1075 type=18(корпус) url='pozdravleniya-s-imeninami-svyatoslava' | Поздравление с именинами Святослава. Подарок для Святослава
+- (1) id=1077 type=18(корпус) url='pozdravleniya-s-imeninami-sergeya' | Поздравление с именинами Сергея. Подарок для Сергея
+- (1) id=1076 type=18(корпус) url='pozdravleniya-s-imeninami-simeona' | Поздравление с именинами Семена. Подарок для Семена
+- (1) id=1078 type=18(корпус) url='pozdravleniya-s-imeninami-timofeya' | Поздравление с именинами Тимофея. Подарок для Тимофея
+- (1) id=1079 type=18(корпус) url='pozdravleniya-s-imeninami-fedora' | Поздравление с именинами Федора. Подарок для Федора
+- (1) id=1080 type=18(корпус) url='pozdravleniya-s-imeninami-filippa' | Поздравление с именинами Филиппа. Подарок для Филиппа
+- (1) id=1082 type=18(корпус) url='pozdravleniya-s-imeninami-aleftiny' | Поздравление с именинами Алевтины. Подарок для Алевтины
+- (1) id=1083 type=18(корпус) url='pozdravleniya-s-imeninami-aleksandry' | Поздравление с именинами Александры. Подарок для Александры
+- (1) id=1084 type=18(корпус) url='pozdravleniya-s-imeninami-ally' | Поздравление с именинами Аллы. Подарок для Аллы
+- (1) id=1085 type=18(корпус) url='pozdravleniya-s-imeninami-anastasii' | Поздравление с именинами Анастасии. Подарок для Анастасии
+- (1) id=1086 type=18(корпус) url='pozdravleniya-s-imeninami-anny' | Поздравление с именинами Анны. Подарок для Анны
+- (1) id=1087 type=18(корпус) url='pozdravleniya-s-imeninami-antoniny' | Поздравление с именинами Антонины. Подарок для Антонины
+- (1) id=1088 type=18(корпус) url='pozdravleniya-s-imeninami-valentiny' | Поздравление с именинами Валентины. Подарок для Валентины
+- (1) id=1089 type=18(корпус) url='pozdravleniya-s-imeninami-valerii' | Поздравление с именинами Валерии. Подарок для Валерии
+- (1) id=1090 type=18(корпус) url='pozdravleniya-s-imeninami-varvary' | Поздравление с именинами Варвары. Подарок для Варвары
+- (1) id=1092 type=18(корпус) url='pozdravleniya-s-imeninami-very' | Поздравление с именинами Веры. Подарок для Веры
+- (1) id=1091 type=18(корпус) url='pozdravleniya-s-imeninami-veroniki' | Поздравление с именинами Вероники. Подарок для Вероники
+- (1) id=1093 type=18(корпус) url='pozdravleniya-s-imeninami-galiny' | Поздравление с именинами Галины. Подарок для Галины
+- (1) id=1094 type=18(корпус) url='pozdravleniya-s-imeninami-evgenii' | Поздравление с именинами Евгении. Подарок для Евгении
+- (1) id=1095 type=18(корпус) url='pozdravleniya-s-imeninami-ekateriny' | Поздравление с именинами Екатерины. Подарок для Екатерины
+- (1) id=1096 type=18(корпус) url='pozdravleniya-s-imeninami-eleny' | Поздравление с именинами Елены. Подарок для Елены
+- (1) id=1097 type=18(корпус) url='pozdravleniya-s-imeninami-elizavety' | Поздравление с именинами Елизаветы. Подарок для Елизаветы
+- (1) id=1098 type=18(корпус) url='pozdravleniya-s-imeninami-zinaidy' | Поздравление с именинами Зинаиды. Подарок для Зинаиды
+- (1) id=1099 type=18(корпус) url='pozdravleniya-s-imeninami-zoi' | Поздравление с именинами Зои. Подарок для Зои
+- (1) id=1100 type=18(корпус) url='pozdravleniya-s-imeninami-iriny' | Поздравление с именинами Ирины. Подарок для Ирины
+- (1) id=1119 type=18(корпус) url='pozdravleniya-s-imeninami-yulii' | Поздравление с именинами Юлии. Подарок для Юлии
+- (1) id=1110 type=18(корпус) url='pozdravleniya-s-imeninami-oksany' | Поздравление с именинами Оксаны. Подарок для Оксаны
+- (1) id=1102 type=18(корпус) url='pozdravleniya-s-imeninami-lidii' | Поздравление с именинами Лидии. Подарок для Лидии
+- (1) id=1103 type=18(корпус) url='pozdravleniya-s-imeninami-lyubovi' | Поздравление с именинами Любови. Подарок для Любови
+- (1) id=1104 type=18(корпус) url='pozdravleniya-s-imeninami-lyudmily' | Поздравление с именинами Людмилы. Подарок для Людмилы
+- (1) id=1106 type=18(корпус) url='pozdravleniya-s-imeninami-mariny' | Поздравление с именинами Марины. Подарок для Марины
+- (1) id=1105 type=18(корпус) url='pozdravleniya-s-imeninami-marii' | Поздравление с именинами Марии. Подарок для Марии
+- (1) id=1107 type=18(корпус) url='pozdravleniya-s-imeninami-nadezhdy' | Поздравление с именинами Надежды. Подарок для Надежды
+- (1) id=1108 type=18(корпус) url='pozdravleniya-s-imeninami-natalii' | Поздравление с именинами Натальи. Подарок для Натальи
+- (1) id=1109 type=18(корпус) url='pozdravleniya-s-imeninami-niny' | Поздравление с именинами Нины. Подарок для Нины
+- (1) id=1111 type=18(корпус) url='pozdravleniya-s-imeninami-olgi' | Поздравление с именинами Ольги. Подарок для Ольги
+- (1) id=1112 type=18(корпус) url='pozdravleniya-s-imeninami-poliny' | Поздравление с именинами Полины. Подарок для Полины
+- (1) id=1113 type=18(корпус) url='pozdravleniya-s-imeninami-raisy' | Поздравление с именинами Раисы. Подарок для Раисы
+- (1) id=1114 type=18(корпус) url='pozdravleniya-s-imeninami-svetlany' | Поздравление с именинами Светланы. Подарок для Светланы
+- (1) id=1115 type=18(корпус) url='pozdravleniya-s-imeninami-sofii' | Поздравление с именинами Софии. Подарок для Софии
+- (1) id=1116 type=18(корпус) url='pozdravleniya-s-imeninami-taisii' | Поздравление с именинами Таисии. Подарок для Таисии
+- (1) id=1117 type=18(корпус) url='pozdravleniya-s-imeninami-tamary' | Поздравление с именинами Тамары. Подарок для Тамары
+- (1) id=1118 type=18(корпус) url='pozdravleniya-s-imeninami-tatiany' | Поздравление с именинами Татьяны. Подарок для Татьяны
+- (1) id=1101 type=18(корпус) url='pozdravleniya-s-imeninami-kristiny' | Поздравление с именинами Кристины. Подарок для Кристины
+- (1) id=71 type=1(корпус) url='lestvica' | Лествица Иоанна Лествичника - в формате книги и mp3
+- (1) id=922 type=17(корпус) url='dobrotolubie-predislovie' | Предисловие | Добротолюбие избранное для мирян
+- (1) id=950 type=17(корпус) url='vera-v-Boga-dobrotolubie-izbrannoe-dlya-miryn' | Вера в Бога | Добротолюбие избранное для мирян
+- (1) id=951 type=17(корпус) url='strah-bozhii-dobrotolubie-izbrannoe-dlya-miryn' | Страх Божий | Добротолюбие избранное для мирян
+- (1) id=952 type=17(корпус) url='o-smerti-strashnom-sude-dobrotolubie-izbrannoe-dlya-miryn' | О смерти, страшном суде, вечных муках и райских селениях | Д
+- (1) id=953 type=17(корпус) url='uzkii-i-prostrannyi-put-dobrotolubie-izbrannoe-dlya-miryn' | Узкий и пространный путь | Добротолюбие избранное для мирян
+- (1) id=954 type=17(корпус) url='lyubov-k-Bogu-i-blizhnemu-dobrotolubie-izbrannoe-dlya-miryn' | Любовь к Богу и ближнему | Добротолюбие избранное для мирян
+- (1) id=956 type=17(корпус) url='pokayanie-dobrotolubie-izbrannoe-dlya-miryn' | Покаяние | Добротолюбие избранное для мирян
+- (1) id=957 type=17(корпус) url='smirenie-dobrotolubie-izbrannoe-dlya-miryn' | Смирение | Добротолюбие избранное для мирян
+- (1) id=958 type=17(корпус) url='gordost-i-tsheslavie-dobrotolubie-izbrannoe-dlya-miryn' | Гордость и тщеславие | Добротолюбие избранное для мирян
+- (1) id=959 type=17(корпус) url='terpenie-skorbi-bolezni-dobrotolubie-izbrannoe-dlya-miryn' | Терпение, скорби, искушения и болезни | Добротолюбие избранн
+- (1) id=955 type=17(корпус) url='molitva-dobrotolubie-izbrannoe-dlya-miryn' | Молитва | Добротолюбие избранное для мирян
+- (1) id=960 type=17(корпус) url='post-dobrotolubie-izbrannoe-dlya-miryn' | Пост | Добротолюбие избранное для мирян
+- (1) id=970 type=17(корпус) url='o-svyatom-prichashenii-dobrotolubie-izbrannoe-dlya-miryn' | О Святом Причащении | Добротолюбие избранное для мирян
+- (1) id=971 type=17(корпус) url='svyashennoe-pisanie-dobrotolubie-izbrannoe-dlya-miryn' | Священное Писание | Добротолюбие избранное для мирян
+- (1) id=972 type=17(корпус) url='blagodat-dobrotolubie-izbrannoe-dlya-miryn' | Благодать | Добротолюбие избранное для мирян
+- (1) id=973 type=17(корпус) url='volya-i-zapovedi-bozhii-dobrotolubie-izbrannoe-dlya-miryn' | Воля и Заповеди Божии | Добротолюбие избранное для мирян
+- (1) id=974 type=17(корпус) url='promysel-bozhii-dobrotolubie-izbrannoe-dlya-miryn' | Промысел Божий | Добротолюбие избранное для мирян
+- (1) id=975 type=17(корпус) url='dobrodeteli-dobrotolubie-izbrannoe-dlya-miryn' | Добродетели | Добротолюбие избранное для мирян
+- (1) id=976 type=17(корпус) url='dobro-i-zlo-dobrotolubie-izbrannoe-dlya-miryn' | Добро и зло | Добротолюбие избранное для мирян
+- (1) id=977 type=17(корпус) url='o-sovesti-dobrotolubie-izbrannoe-dlya-miryn' | О совести | Добротолюбие избранное для мирян
+- (1) id=978 type=17(корпус) url='strasti-dobrotolubie-izbrannoe-dlya-miryn' | Страсти | Добротолюбие избранное для мирян
+- (1) id=979 type=17(корпус) url='neosuzhdenie-dobrotolubie-izbrannoe-dlya-miryn' | Неосуждение | Добротолюбие избранное для мирян
+- (1) id=980 type=17(корпус) url='samolyubie-dobrotolubie-izbrannoe-dlya-miryn' | Самолюбие | Добротолюбие избранное для мирян
+- (1) id=981 type=17(корпус) url='gnev-i-razdrazhitelnost-dobrotolubie-izbrannoe-dlya-miryn' | Гнев и раздражительность | Добротолюбие избранное для мирян
+- (1) id=982 type=17(корпус) url='o-srebrolyubii-dobrotolubie-izbrannoe-dlya-miryn' | О сребролюбии и нестяжательности | Добротолюбие избранное дл
+- (1) id=983 type=17(корпус) url='nechistota-blud-dobrotolubie-izbrannoe-dlya-miryn' | Нечистота (блуд) | Добротолюбие избранное для мирян
+- (1) id=984 type=17(корпус) url='smeh-dobrotolubie-izbrannoe-dlya-miryn' | Смех | Добротолюбие избранное для мирян
+- (1) id=985 type=17(корпус) url='son-dobrotolubie-izbrannoe-dlya-miryn' | Сон | Добротолюбие избранное для мирян
+- (1) id=986 type=17(корпус) url='soblazny-dobrotolubie-izbrannoe-dlya-miryn' | Соблазны | Добротолюбие избранное для мирян
+- (1) id=987 type=17(корпус) url='zavist-dobrotolubie-izbrannoe-dlya-miryn' | Зависть | Добротолюбие избранное для мирян
+- (1) id=988 type=17(корпус) url='pechal-dobrotolubie-izbrannoe-dlya-miryn' | Печаль (уныние) | Добротолюбие избранное для мирян
+- (1) id=989 type=17(корпус) url='grehi-myslennye-dobrotolubie-izbrannoe-dlya-miryn' | Грехи мысленные | Добротолюбие избранное для мирян
+- (1) id=990 type=17(корпус) url='nashi-chuvstva-dobrotolubie-izbrannoe-dlya-miryn' | Наши чувства | Добротолюбие избранное для мирян
+- (1) id=991 type=17(корпус) url='sueta-dobrotolubie-izbrannoe-dlya-miryn' | Суета | Добротолюбие избранное для мирян
+- (1) id=993 type=17(корпус) url='druziya-dobrotolubie-izbrannoe-dlya-miryn' | Друзья | Добротолюбие избранное для мирян
+- (1) id=994 type=17(корпус) url='devstvo-i-celomudrie-dobrotolubie-izbrannoe-dlya-miryn' | Девство и целомудрие | Добротолюбие избранное для мирян
+- (1) id=995 type=17(корпус) url='slezy-dobrotolubie-izbrannoe-dlya-miryn' | Слезы | Добротолюбие избранное для мирян
+- (1) id=996 type=17(корпус) url='poslushanie-dobrotolubie-izbrannoe-dlya-miryn' | Послушание | Добротолюбие избранное для мирян
+- (1) id=997 type=17(корпус) url='istinnyi-monah-dobrotolubie-izbrannoe-dlya-miryn' | Истинный монах | Добротолюбие избранное для мирян
+- (1) id=998 type=17(корпус) url='otshelnichestvo-dobrotolubie-izbrannoe-dlya-miryn' | Отшельничество | Добротолюбие избранное для мирян
+- (1) id=999 type=17(корпус) url='podvizhnichestvo-dobrotolubie-izbrannoe-dlya-miryn' | Подвижничество | Добротолюбие избранное для мирян
+- (1) id=1000 type=17(корпус) url='besedy-s-mirskimi-dobrotolubie-izbrannoe-dlya-miryn' | Беседа с мирскими | Добротолюбие избранное для мирян
+- (1) id=1001 type=17(корпус) url='vnutrennii-vrag-dobrotolubie-izbrannoe-dlya-miryn' | Внутренний враг | Добротолюбие избранное для мирян
+- (1) id=1002 type=17(корпус) url='o-spasenii-v-miru-dobrotolubie-izbrannoe-dlya-miryn' | О спасении в миру | Добротолюбие избранное для мирян
+- (1) id=1003 type=17(корпус) url='beganie-mira-dobrotolubie-izbrannoe-dlya-miryn' | Бегание мира | Добротолюбие избранное для мирян
+- (1) id=1004 type=17(корпус) url='rassuzhdenie-dobrotolubie-izbrannoe-dlya-miryn' | Рассуждение | Добротолюбие избранное для мирян
+- (1) id=1005 type=17(корпус) url='molchanie-i-mnogoslovie-dobrotolubie-izbrannoe-dlya-miryn' | Молчание и многословие | Добротолюбие избранное для мирян
+- (1) id=1006 type=17(корпус) url='bog-i-ty-dobrotolubie-izbrannoe-dlya-miryn' | Бог и ты | Добротолюбие избранное для мирян
+- (1) id=1007 type=17(корпус) url='prelest-dobrotolubie-izbrannoe-dlya-miryn' | Прелесть | Добротолюбие избранное для мирян
+- (1) id=1008 type=17(корпус) url='blyudenie-uma-i-greh-dobrotolubie-izbrannoe-dlya-miryn' | Блюдение ума и грех | Добротолюбие избранное для мирян
+- (1) id=1009 type=17(корпус) url='mudrost-duhovnaya-i-razum-dobrotolubie-izbrannoe-dlya-miryn' | Мудрость духовная и разум | Добротолюбие избранное для мирян
+- (1) id=1010 type=17(корпус) url='podrazhanie-bogu-dobrotolubie-izbrannoe-dlya-miryn' | Подражание Богу | Добротолюбие избранное для мирян
+- (1) id=1011 type=17(корпус) url='podrazhanie-svyatym-dobrotolubie-izbrannoe-dlya-miryn' | Подражание святым | Добротолюбие избранное для мирян
+- (1) id=1012 type=17(корпус) url='blagochestie-dobrotolubie-izbrannoe-dlya-miryn' | Благочестие | Добротолюбие избранное для мирян
+- (1) id=1013 type=17(корпус) url='pravednost-radost-svyatost-dobrotolubie-izbrannoe-dlya-miryn' | Праведность, радость, святость, чистота | Добротолюбие избра
+- (1) id=1014 type=17(корпус) url='zhizn-deyatelnaya-dobrotolubie-izbrannoe-dlya-miryn' | Жизнь деятельная и созерцательная  | Добротолюбие избранное 
+- (1) id=961 type=17(корпус) url='sovershenstvo-duh-zhizni-dobrotolubie-izbrannoe-dlya-miryn' | Совершенство духовной жизни | Добротолюбие избранное для мир
+- (1) id=1015 type=17(корпус) url='blagodarenie-Boga-dobrotolubie-izbrannoe-dlya-miryn' | Благодарение (прославление) Бога | Добротолюбие избранное дл
+- (1) id=1016 type=17(корпус) url='o-styazhanii-duha-svyatago-dobrotolubie-izbrannoe-dlya-miryn' | О стяжании Духа Святого | Добротолюбие избранное для мирян
+- (1) id=1017 type=17(корпус) url='sila-Bozhiya-dobrotolubie-izbrannoe-dlya-miryn' | Сила Божия | Добротолюбие избранное для мирян
+- (1) id=1018 type=17(корпус) url='uteshenie-Bozhestvennoe-dobrotolubie-izbrannoe-dlya-miryn' | Утешение Божественное | Добротолюбие избранное для мирян
+- (1) id=1020 type=17(корпус) url='svyashenstvo-dobrotolubie-izbrannoe-dlya-miryn' | Священство | Добротолюбие избранное для мирян
+- (1) id=962 type=17(корпус) url='povesti-iz-zhitiya-starcev-dobrotolubie-izbrannoe-dlya-miryn' | Повести из жития Египетских старцев | Добротолюбие избранное
+- (1) id=776 type=14(корпус) url='imeniny-pavla' | Именины Павла, день Ангела Павла
+- (1) id=734 type=14(корпус) url='imeniny-aleksandra' | Именины Александра, день Ангела Александра
+- (1) id=735 type=14(корпус) url='imeniny-alekseya' | Именины Алексея, день Ангела Алексея
+- (1) id=736 type=14(корпус) url='imeniny-anatoliya' | Именины Анатолия, день Ангела Анатолия
+- (1) id=737 type=14(корпус) url='imeniny-andreya' | Именины Андрея, день Ангела Андрея
+- (1) id=738 type=14(корпус) url='imeniny-antona' | Именины Антона, день Ангела Антона
+- (1) id=740 type=14(корпус) url='imeniny-arkadiya' | Именины Аркадия, день Ангела Аркадия
+- (1) id=739 type=14(корпус) url='imeniny-arseniya' | Именины Арсения, день Ангела Арсения
+- (1) id=741 type=14(корпус) url='imeniny-artema' | Именины Артема, день Ангела Артема
+- (1) id=742 type=14(корпус) url='imeniny-borisa' | Именины Бориса, день Ангела Бориса
+- (1) id=744 type=14(корпус) url='imeniny-valentina' | Именины Валентина, день Ангела Валентина
+- (1) id=743 type=14(корпус) url='imeniny-valeriya' | Именины Валерия, день Ангела Валерия
+- (1) id=745 type=14(корпус) url='imeniny-vasiliya' | Именины Василия, день Ангела Василия
+- (1) id=746 type=14(корпус) url='imeniny-viktora' | Именины Виктора, день Ангела Виктора
+- (1) id=747 type=14(корпус) url='imeniny-vitaliya' | Именины Виталия, день Ангела Виталия
+- (1) id=748 type=14(корпус) url='imeniny-vladimira' | Именины Владимира, день Ангела Владимира
+- (1) id=749 type=14(корпус) url='imeniny-vsevoloda' | Именины Всеволода, день Ангела Всеволода
+- (1) id=750 type=14(корпус) url='imeniny-gennadiya' | Именины Геннадия, день Ангела Геннадия
+- (1) id=751 type=14(корпус) url='imeniny-georgiya' | Именины Георгия, день Ангела Георгия
+- (1) id=723 type=14(корпус) url='imeniny-germana' | Именины Германа, день Ангела Германа
+- (1) id=752 type=14(корпус) url='imeniny-grigoriya' | Именины Григория, день Ангела Григория
+- (1) id=754 type=14(корпус) url='imeniny-daniila' | Именины Даниила, день Ангела Даниила
+- (1) id=756 type=14(корпус) url='imeniny-denisa' | Именины Дениса, день Ангела Дениса
+- (1) id=755 type=14(корпус) url='imeniny-dmitriya' | Именины Дмитрия, день Ангела Дмитрия
+- (1) id=757 type=14(корпус) url='imeniny-evgeniya' | Именины Евгения - день Ангела Евгения
+- (1) id=762 type=14(корпус) url='imeniny-ivana' | Именины Ивана, день Ангела Ивана
+- (1) id=760 type=14(корпус) url='imeniny-igorya' | Именины Игоря, день Ангела Игоря
+- (1) id=761 type=14(корпус) url='imeniny-ilii' | Именины Ильи, день Ангела Ильи
+- (1) id=763 type=14(корпус) url='imeniny-kirilla' | Именины Кирилла, день Ангела Кирилла
+- (1) id=764 type=14(корпус) url='imeniny-konstantia' | Именины Константина, день Ангела Константина
+- (1) id=765 type=14(корпус) url='imeniny-kuzimy' | Именины Кузьмы, день Ангела Кузьмы
+- (1) id=766 type=14(корпус) url='imeniny-lavrentiya' | Именины Лаврентия, день Ангела Лаврентия
+- (1) id=768 type=14(корпус) url='imeniny-leonida' | Именины Леонида, день Ангела Леонида
+- (1) id=767 type=14(корпус) url='imeniny-lva' | Именины Льва, день Ангела Льва
+- (1) id=769 type=14(корпус) url='imeniny-maksima' | Именины Максима, день Ангела Максима
+- (1) id=770 type=14(корпус) url='imeniny-marka' | Именины Марка, день Ангела Марка
+- (1) id=771 type=14(корпус) url='imeniny-matveya' | Именины Матвея, день Ангела Матвея
+- (1) id=772 type=14(корпус) url='imeniny-mihaila' | Именины Михаила, день Ангела Михаила
+- (1) id=773 type=14(корпус) url='imeniny-nikity' | Именины Никиты, день Ангела Никиты
+- (1) id=774 type=14(корпус) url='imeniny-nikolai' | Именины Николая, день Ангела Николая
+- (1) id=775 type=14(корпус) url='imeniny-olega' | Именины Олега, день Ангела Олега
+- (1) id=777 type=14(корпус) url='imeniny-petra' | Именины Петра, день Ангела Петра
+- (1) id=778 type=14(корпус) url='imeniny-romana' | Именины Романа, день Ангела Романа
+- (1) id=779 type=14(корпус) url='imeniny-rostislava' | Именины Ростислава, день Ангела Ростислава
+- (1) id=780 type=14(корпус) url='imeniny-svyatoslava' | Именины Святослава, день Ангела Святослава
+- (1) id=782 type=14(корпус) url='imeniny-semena' | Именины Семена, день Ангела Семена
+- (1) id=781 type=14(корпус) url='imeniny-sergeya' | Именины Сергея, день Ангела Сергея
+- (1) id=783 type=14(корпус) url='imeniny-timofei' | Именины Тимофея, день Ангела Тимофея
+- (1) id=784 type=14(корпус) url='imeniny-fedora' | Именины Федора, день Ангела Федора
+- (1) id=785 type=14(корпус) url='imeniny-filippa' | Именины Филиппа, день Ангела Филиппа
+- (1) id=759 type=14(корпус) url='imeniny-yakova' | Именины Якова, день Ангела Якова
+- (1) id=786 type=15(корпус) url='imeniny-alevtiny' | Именины Алевтины, день Ангела Алевтины
+- (1) id=787 type=15(корпус) url='imeniny-aleksandry' | Именины Александры, день Ангела Александры
+- (1) id=788 type=15(корпус) url='imeniny-ally' | Именины Аллы, день Ангела Аллы
+- (1) id=789 type=15(корпус) url='imeniny-anastasii' | Именины Анастасии, день Ангела Анастасии
+- (1) id=790 type=15(корпус) url='imeniny-anny' | Именины Анны, день Ангела Анны
+- (1) id=791 type=15(корпус) url='imeniny-antoniny' | Именины Антонины, день Ангела Антонины
+- (1) id=792 type=15(корпус) url='imeniny-valentiny' | Именины Валентины, день Ангела Валентины
+- (1) id=793 type=15(корпус) url='imeniny-valerii' | Именины Валерии, день Ангела Валерии
+- (1) id=794 type=15(корпус) url='imeniny-varvary' | Именины Варвары, день Ангела Варвары
+- (1) id=796 type=15(корпус) url='imeniny-veroniki' | Именины Вероники, день Ангела Вероники
+- (1) id=795 type=15(корпус) url='imeniny-very' | Именины Веры, день Ангела Веры
+- (1) id=797 type=15(корпус) url='imeniny-galiny' | Именины Галины, день Ангела Галины
+- (1) id=798 type=15(корпус) url='imeniny-evgenii' | Именины Евгении, день Ангела Евгении
+- (1) id=799 type=15(корпус) url='imeniny-ekateriny' | Именины Екатерины, день Ангела Екатерины
+- (1) id=800 type=15(корпус) url='imeniny-eleny' | Именины Елены, день Ангела Елены
+- (1) id=801 type=15(корпус) url='imeniny-elizavety' | Именины Елизаветы, день Ангела Елизаветы
+- (1) id=802 type=15(корпус) url='imeniny-zinaidy' | Именины Зинаиды, день Ангела Зинаиды
+- (1) id=803 type=15(корпус) url='imeniny-zoi' | Именины Зои, день Ангела Зои
+- (1) id=804 type=15(корпус) url='imeniny-iriny' | Именины Ирины, день Ангела Ирины
+- (1) id=823 type=15(корпус) url='imeniny-kristiny' | Именины Кристины, день Ангела Кристины
+- (1) id=807 type=15(корпус) url='imeniny-lidii' | Именины Лидии, день Ангела Лидии
+- (1) id=808 type=15(корпус) url='imeniny-lyubovi' | Именины Любови, день Ангела Любови
+- (1) id=809 type=15(корпус) url='imeniny-lyudmila' | Именины Людмилы, день Ангела Людмилы
+- (1) id=811 type=15(корпус) url='imeniny-marii' | Именины Марии, день Ангела Марии
+- (1) id=810 type=15(корпус) url='imeniny-mariny' | Именины Марины, день Ангела Марины
+- (1) id=812 type=15(корпус) url='imeniny-nadezhdy' | Именины Надежды, день Ангела Надежды
+- (1) id=813 type=15(корпус) url='imeniny-natalii' | Именины Натальи, день Ангела Натальи
+- (1) id=814 type=15(корпус) url='imeniny-niny' | Именины Нины, день Ангела Нины
+- (1) id=806 type=15(корпус) url='imeniny-oksany' | Именины Оксаны, день Ангела Оксаны
+- (1) id=815 type=15(корпус) url='imeniny-olgi' | Именины Ольги, день Ангела Ольги
+- (1) id=816 type=15(корпус) url='imeniny-poliny' | Именины Полины, день Ангела Полины
+- (1) id=817 type=15(корпус) url='imeniny-raisy' | Именины Раисы, день Ангела Раисы
+- (1) id=818 type=15(корпус) url='imeniny-svetlany' | Именины Светланы, день Ангела Светланы
+- (1) id=819 type=15(корпус) url='imeniny-sofii' | Именины Софии, день Ангела Софии
+- (1) id=820 type=15(корпус) url='imeniny-taisii' | Именины Таисии, день Ангела Таисии
+- (1) id=821 type=15(корпус) url='imeniny-tamary' | Именины Тамары, день Ангела Тамары
+- (1) id=822 type=15(корпус) url='imeniny-tatiany' | Именины Татьяны, день Ангела Татьяны
+- (1) id=805 type=15(корпус) url='imeniny-yulii' | Именины Юлии, день Ангела Юлии
+- (1) id=1284 type=20(корпус) url='akafist-ioannu-bogoslovu' | Акафист святому апостолу и евангелисту Иоанну Богослову
+- (1) id=1257 type=4(корпус) url='ioann-bogoslov' | Иоанн Богослов: житие святого апостола Иоанна Богослова
+- (1) id=1287 type=4(корпус) url='elena' | Святая Елена. Житие святой равноапостольной Елены
+- (1) id=1393 type=4(корпус) url='svyatitel-illidii-klermonskii-chudotvorec' | Иллидий, святитель, Клермонский чудотворец. Житие святителя 
+- (1) id=1462 type=4(корпус) url='prepodobnyi-aredii-svyatoi-abbat-limozhskii' | Аредий, преподобный, святой аббат Лиможский. Житие преподобн
+
+## 2. Внутренние ссылки на ОГЛАВЛЕНИЯ (-lib<id>)  (уник.целей 8, вхождений 628)
+- (178) id=732 type=11(оглавл) url='imenini' | Именины сегодня - день  Ангела 
+- (178) id=721 type=11(оглавл) url='podarok-imenin' | Что подарить на именины, день Ангела? 
+- (89) id=733 type=11(оглавл) url='imenini' | Как определить день именин, день ангела?
+- (89) id=720 type=11(оглавл) url='imenini' | Именины. Как правильно праздновать дни именин.
+- (89) id=716 type=11(оглавл) url='svyatie' | Святые: чины святых
+- (3) id=26 type=7(оглавл) url='zhitiya-svyatih' | Жития святых Дмитрия Ростовского - Четьи Минеи. Собрание жит
+- (1) id=63 type=7(оглавл) url='zhitiya-svyatih-nikolaya-serbskogo' | Краткие жития святых в изложении Святителя Николая Сербского
+- (1) id=64 type=7(оглавл) url='izbrannie-zhitiya-svyatih' | Избранные жития святых
+
+## 3. Внутренние ссылки на СЛУЖЕБНЫЕ (-lib<id>)  (уник.целей 0, вхождений 0)
+
+## 4. Ссылки -lib<id> на НЕСУЩЕСТВУЮЩИЕ id  (уник.целей 0, вхождений 0)
+
+## 5. Магазинные ссылки /buy/  (уник. 43, вхождений 355)
+- (168) /buy/
+- (64) /buy/izdaniya-dobrotolubiya-t664
+- (29) /buy/show_item.php?cat=132
+- (12) /buy/show_item.php?cat=2479
+- (6) /buy/show_item.php?cat=3221
+- (6) /buy/ignatii-bryanchaninov-t91
+- (4) /buy/show_item.php?cat=2705
+- (4) /buy/show_item.php?cat=10339
+- (4) /buy/ikona-ravnoapostolnoi-eleni-t972/
+- (3) /buy/show_item.php?cat=3243
+- (3) /buy/dmitrii-smirnov-t586
+- (3) /buy/lestvica-t713
+- (3) /buy/show_item.php?cat=2478
+- (3) /buy/search.php?s=%C8%EA%EE%ED%E0+%CD%E8%EA%EE%EB%E0%E9+
+- (3) /buy/ikoni-velikomuchenitsi-ekaterini-t964/
+- (3) /buy/ikona-svyatoi-irini-t1140/
+- (3) /buy/show_item.php?cat=12676
+- (2) /buy/show_item.php?cat=1543
+- (2) /buy/show_item.php?cat=3477
+- (2) /buy/show_item.php?cat=3161
+- (2) /buy/show_item.php?cat=1861
+- (2) /buy/ikona-uara-t1137
+- (2) /buy/show_item.php?cat=1380
+- (2) /buy/ikona-svyatoi-veroniki-t1102/
+- (2) /buy/ikoni-ludmili-t1143/
+- (1) /buy/show_item.php?cat=2300
+- (1) /buy/ivan-shmelev-t76
+- (1) /buy/show_item.php?cat=3257
+- (1) /buy/show_item.php?cat=3022
+- (1) /buy/show_item.php?cat=3216
+- (1) /buy/nikolai-serbskii-t243
+- (1) /buy/show_list.php?main=5
+- (1) /buy/show_item.php?cat=244
+- (1) /buy/venchalnii-ikoni-t1187
+- (1) /buy/tihon-zadonskii-t780
+- (1) /buy/show_item.php?cat=2699
+- (1) /buy/knigi/
+- (1) /buy/show_item.php?cat=13308
+- (1) /buy/ispoved-grehov-t865
+- (1) /buy/show_item.php?cat=725
+- (1) ../buy/show_item.php?cat=725
+- (1) /buy/bibliya-kupit-t561
+- (1) /buy/show_item.php?cat=10644
+
+## 6. Внешние http(s) ссылки  (уник. 6, вхождений 94, хостов 4)
+### www.hristianstvo.ru  (вхождений 88)
+- (88) http://www.hristianstvo.ru/?from=2088
+
+### svyato.info  (вхождений 3)
+- (1) http://svyato.info/moskovskaja-oblast/
+- (1) http://svyato.info/moskovskaja-oblast/sergievo-posadskijj-rajjon-moskovskaja-oblast/derevnja-vzgljadnevo-sergievo-posadskijj/
+- (1) http://svyato.info/moskovskaja-oblast/chekhovskijj-rajjon-moskovskaja-oblast/selo-talezh-chekhovskijj/
+
+### piligrimiya.ru  (вхождений 2)
+- (2) http://piligrimiya.ru/
+
+### umilenie-hram.ru  (вхождений 1)
+- (1) https://umilenie-hram.ru
+
+## 7. Прочие внутренние абсолютные (не -lib, не /buy)  (уник. 8, вхождений 15)
+- (7) /htm/fair/html/ignatii-bryanchaninov.htm
+- (2) /afisha/bibliuya/sinod-bibliya.txt
+- (1) /htm/fair/html/feofan-zatvor.htm
+- (1) /htm/fair/ioann-zlatoust.htm
+- (1) /htm/fair/afonskie-starci.htm
+- (1) /htm/fair/charskay.htm
+- (1) /htm/fair/Downloads/v-pomosch-kauschimsy.rtf
+- (1) /htm/fair/Downloads/lestvica.doc
+
+## 9. Относительные/прочие  (уник. 4, вхождений 13)
+- (10) ../../show_item.php?cat=725
+- (1) ../../../show_item.php?cat=2705
+- (1) pozdravleniya-s-imeninami-valeriya
+- (1) ../show_item.php?cat=725%5C%22

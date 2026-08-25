@@ -1,0 +1,19 @@
+# Извлечено из дампа 2018-11-17_02-10_db_idrp.sql, таблица articlex, как есть
+id: 269
+url: "zhitiya-svyatih"
+type: 4
+pg_ttl: "Домнина,  преподобная | Жития святых Дмитрия Ростовского"
+pg_dsc: "Жите преподобной Домнины в изложении Дмитрия Ростовского"
+anons: ""
+dt1_day: 14
+dt1_month: 3
+dt2_day: 0
+dt2_month: 0
+dt3_day: 0
+dt3_month: 0
+days_easter: null
+last_date: "2011-10-30 14:30:01"
+images:
+  - src: "/images/content/image/152.jpg"
+    legacy_path: "legacy/images/content/image/152.jpg"
+    file: "152.jpg"

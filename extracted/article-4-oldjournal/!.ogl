@@ -1,0 +1,31 @@
+<fieldset>
+	<legend class="smallest" id="col_vid">&laquo;Русскiй Паломникъ&raquo; №2-1990 г.</legend>
+<div id="title">
+	<h3>&copy; &laquo;Издательский Домъ &laquo;Русскiй Паломникъ&raquo;</h3>
+	<h2>Вселенскiе Святые</h2>
+	<h2>БЕСЕДА ПРПД. СЕРАФИМА САРОВСКОГО</h2>
+	<h1>О Ц&#1123ЛИ ХРИСТIАНСКОЙ ЖИЗНИ</h1>
+	<h3>Изъ Рукописи Мотовилова</h3>
+	<h3><i>Духъ Божiй, явно почивающiй на Отц&#1123 Серафим&#1123 Саровскомъ въ бесед&#1123 его о цели Христiанской жизни съ симбирским пом&#1123щикомъ и совестнымъ судьей Николаемъ Александровичемъ Мотовиловымъ.</i></h3>
+</div>
+</fieldset>
+	<div id="oglavlenie" class="bg_oglav">
+		<fieldset>
+		<legend class="medium" id="col_vid">Оглавление:</legend>
+		<ul>
+		        <li><a href='jurnal.php?name=xlife&num=2&page=0'>ПРЕДИСЛОВIЕ</a></li>
+ 		        <li><a href='jurnal.php?name=xlife&num=2&page=1'>ПРЕДИСЛОВIЕ С.А. Нилуса</a></li>
+		
+		</ul>
+		  <ol type="I">
+			<li><a href='jurnal.php?name=xlife&num=2&page=2'>ПРИГЛАШЕНIЕ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=3'>ИЗВОЛЕНIЕ ГОСПОДНЕ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=4'>Ц&#1122ЛЬ ХРИСТИАНСКОЙ ЖИЗНИ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=5'>СТЯЖЕНIЕ БЛАГОДАТИ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=6'>БОГОМАТЕРЬ - ЯЗВА Б&#1122СОВЪ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=7'>БЛАГОДАТЬ ЕСТЬ СВ&#1122ТЪ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=8'>МИР И ТЕПЛОТА БЛАГОДАТИ</a></li>
+			<li><a href='jurnal.php?name=xlife&num=2&page=9'>ПОСЛ&#1122СЛОВIЕ</a><br />
+		  </ol>
+		</fieldset>
+	</div>

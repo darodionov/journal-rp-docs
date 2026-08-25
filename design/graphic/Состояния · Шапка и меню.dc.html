@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <title>Состояния: шапка и меню-дровер — Русскій Паломникъ</title>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;family=PT+Sans+Narrow:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    html,body{margin:0;padding:0;background:#efeae4}
+    body{font-family:"PT Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#565350}
+    a{color:#76c7d1;text-decoration:none}
+    a:hover{color:#55b3bb}
+    @media (prefers-reduced-motion: reduce){*{transition-duration:.01ms !important}}
+  </style>
+</helmet>
+
+<div style="max-width:1280px;margin:0 auto;padding:36px 28px 90px">
+
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #462512;padding-bottom:14px">
+    <div>
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9a8f85;font-weight:700">Русскій Паломникъ · спецификация для /dev/tokens</div>
+      <h1 style="margin:8px 0 0;font-size:34px;font-weight:700;color:#462512">Состояния: шапка и меню-дровер</h1>
+    </div>
+    <div style="font-size:12px;color:#9a8f85;text-align:right;line-height:1.7">
+      Токены — Tokens Handoff rev. 4<br>Макеты: Statiya_menu_1980 · Menu_768 · Menu_320
+    </div>
+  </div>
+
+  <p style="max-width:840px;font-size:15px;line-height:1.65;margin:20px 0 14px">
+    Переход между состояниями — только цвет, <b>--dur</b> / <b>--ease-standard</b>; ни теней, ни сдвигов
+    (исключение — <b>translateY(1px)</b> у кнопки в active на <b>--dur-fast</b>). Радиус <b>--radius</b>, плоско.
+    Фокус стилизуется через <code>:focus-visible</code>. Таблица в части 1 показывает состояния статически — каждая ячейка
+    зафиксирована в своём состоянии; интерактивны только ряды меню A1/A2 в части 2 (наведите курсор).
+    Иконки взяты из <code>assets/icons/</code> без изменения геометрии. Часть 1 отражает решения шагов 1–3
+    (линия под навигацией, D1 «линия уступает», двойное кольцо фокуса) — вопросы A, B, C части 2 сняты этими решениями
+    и оставлены ниже как история выбора.
+  </p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#9a8f85;margin-bottom:34px">
+    <span style="display:inline-flex;gap:6px;align-items:center"><b style="color:#462512">Часть 1</b> таблица «элемент × состояние»</span>
+    <span style="display:inline-flex;gap:6px;align-items:center"><b style="color:#462512">Часть 2</b> открытые решения A / B / C</span>
+    <span style="display:inline-flex;gap:6px;align-items:center"><b style="color:#462512">Часть 3</b> тач и зоны нажатия</span>
+  </div>
+
+  <!-- ============ ЧАСТЬ 1 ============ -->
+  <div style="border-top:1px solid #462512;padding-top:14px;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h2 style="margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#462512">Часть 1 · элемент × состояние</h2>
+      <span style="font-size:11px;color:#9a8f85">под каждой ячейкой — применяемый токен</span>
+    </div>
+  </div>
+
+  <div style="background:#fff;border-radius:3px;overflow:hidden;margin-bottom:44px">
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));background:#faf6f1;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9a8f85;font-weight:700">
+      <div style="padding:11px 14px">Элемент</div>
+      <div style="padding:11px 10px">Default</div>
+      <div style="padding:11px 10px">Hover</div>
+      <div style="padding:11px 10px">Focus</div>
+      <div style="padding:11px 10px">Current</div>
+      <div style="padding:11px 10px">Active</div>
+      <div style="padding:11px 10px">Pressed</div>
+      <div style="padding:11px 10px">Disabled</div>
+    </div>
+
+    <!-- 1. Навигационная ссылка -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7;align-items:stretch">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">1 · Навигация шапки</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Коричневый капс. --text-nav · --tracking-nav · --weight-bold</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512;transition:color 150ms cubic-bezier(.2,.6,.2,1)">Журнал</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-heading</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="position:relative;display:inline-block;padding-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512">Журнал<span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#318ca5"></span></span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">линия --underline-h 2px<br>--color-teal-700 · scaleX от центра<br>--transition-underline (400ms)<br><span style="color:#4a7a4a">зафиксировано, шаг 1б</span></div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5;border-radius:3px;padding:2px 4px">Журнал</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">box-shadow: --focus-ring<br>цвет не меняется</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="position:relative;display:inline-block;padding-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512">Журнал<span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#318ca5"></span></span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">[aria-current]: линия постоянно<br>сматывается, если наведён сосед<br><span style="color:#4a7a4a">зафиксировано, шаг 2/2б</span></div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="position:relative;display:inline-block;padding-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512">Журнал<span style="position:absolute;left:0;right:0;bottom:0;height:2px;background:#318ca5"></span></span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">совпадает с hover:<br>цвет не меняется</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">не применяется</div>
+      <div style="padding:16px 12px;font-size:11px;color:#c6c6c6">не применяется</div>
+    </div>
+
+    <!-- 2. Тёплая ссылка -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">2 · «Магазин книги»</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Тёплая — внешний раздел (легаси-домен)</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#d3a086">Магазин</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-link-warm</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c98d6d">Магазин</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">--color-link-warm-hover</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#d3a086;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5;border-radius:3px;padding:2px 4px">Магазин</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">box-shadow: --focus-ring-warm</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#d3a086">Магазин</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">не бывает current —<br>это всегда внешний раздел<br><span style="color:#4a7a4a">зафиксировано, шаг 2</span></div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c98d6d">Магазин</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">совпадает с hover</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">не применяется</div>
+      <div style="padding:16px 12px;font-size:11px;color:#c6c6c6">не применяется</div>
+    </div>
+
+    <!-- 3. Сервисная ссылка -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">3 · «О нас», «Контакты»</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Сервисная, --text-small, без капса</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:13px;color:#565350">О нас</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-body</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:13px;color:#462512">О нас</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-heading<br>(сгущение, не смена смысла)</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:13px;color:#565350;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5;border-radius:3px;padding:2px 4px">О нас</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">box-shadow: --focus-ring</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">не применяется</div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="font-size:13px;color:#462512">О нас</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">совпадает с hover</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">не применяется</div>
+      <div style="padding:16px 12px;font-size:11px;color:#c6c6c6">не применяется</div>
+    </div>
+
+    <!-- 4. Кнопка -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">4 · «Вход/Регистрация»</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Primary, заливка, --radius</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#76c7d1;border-radius:3px;padding:7px 13px">Вход</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg: --color-button-primary<br>color: --color-on-accent</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#55b3bb;border-radius:3px;padding:7px 13px">Вход</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg: --color-button-primary-hover</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#76c7d1;border-radius:3px;padding:7px 13px;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5">Вход</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">box-shadow: --focus-ring<br>белый хайрлайн держит кольцо на заливке</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#76c7d1;border-radius:3px;padding:7px 13px">Вход</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">как default —<br>кнопка не бывает текущей</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#4aa3ab;border-radius:3px;padding:7px 13px;transform:translateY(1px)">Вход</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">translateY(1px) · --dur-fast<br>bg темнее hover на 12%</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">не применяется</div>
+      <div style="padding:16px 12px">
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#c6c6c6;border-radius:3px;padding:7px 13px">Вход</span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg: --disabled-bg<br>cursor: not-allowed</div>
+      </div>
+    </div>
+
+    <!-- 5. Логотип -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">5 · Логотип-ссылка</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Картинка без текста — кольцо по краю изображения</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <img src="assets/logo-full.png" alt="Русскій Паломникъ" style="height:44px;display:block">
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">без изменений<br>opacity не трогаем</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">hover не применяется</div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-block;border-radius:3px;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5"><img src="assets/logo-full.png" alt="" style="height:44px;display:block"></span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">на &lt;a&gt;: display:inline-block<br>+ --focus-ring, --radius</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">—</div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">—</div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">—</div>
+      <div style="padding:16px 12px;font-size:11px;color:#c6c6c6">—</div>
+    </div>
+
+    <!-- 6. Иконка-кнопка -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">6 · Иконка-кнопка</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Файл <code>assets/icons/burger.svg</code> на currentColor. Покой <code>--color-heading</code> → ховер <code>--color-link-hover</code> → нажатие подложкой <code>--state-selected-bg</code></div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#462512">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-heading</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#55b3bb">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-link-hover<br>--transition-colors</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#462512;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">box-shadow: --focus-ring</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#462512">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">как default —<br>иконка не бывает текущей</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#55b3bb;background:#faf6f1">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg --state-selected-bg<br>цвет как в hover</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#55b3bb;background:#faf6f1">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">панель открыта:<br>bg --state-selected-bg<br>+ aria-expanded="true"</div>
+      </div>
+      <div style="padding:16px 12px">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#c6c6c6">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --disabled-bg<br>без подложки · cursor default</div>
+      </div>
+    </div>
+
+    <!-- 6б. Лупа -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">6б · Лупа поиска</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Бирюзовая в покое — приглашает к действию. Наведение уводит в коричневый: пара с бургером даёт правило «иконка уходит в тон соседа»</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#76c7d1">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-link</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#462512">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-heading<br>подложки нет</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#76c7d1;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">box-shadow: --focus-ring<br>role="button" · tabindex="0"</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#76c7d1">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">как default —<br>иконка не бывает текущей</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#462512;background:#faf6f1">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">цвет как в hover<br>+ bg --state-selected-bg</div>
+      </div>
+      <div style="padding:16px 12px;border-right:1px solid #f0ece7">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#fff;background:#76c7d1">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">оверлей открыт:<br>bg --color-button-primary<br>штрих --color-text-on-accent</div>
+      </div>
+      <div style="padding:16px 12px">
+        <span style="display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:3px;color:#c6c6c6">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+        <div style="margin-top:10px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --disabled-bg<br>без подложки · cursor default</div>
+      </div>
+    </div>
+
+    <!-- 7. Пункт дровера -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">7 · Пункт меню-дровера</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">Капс, вертикальный список, --lh-nav</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#462512">События</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: --color-heading</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#462512;background:rgba(70,37,18,.04)">События</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg: --state-hover-tint<br>(вся строка, не текст)</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#462512;box-shadow:inset 0 0 0 1px #fff,inset 0 0 0 3px #318ca5">События</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">--focus-ring внутрь (inset),<br>чтобы не резать край панели</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#d3a086;background:#faf6f1">События</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">current: --color-link-warm<br>+ bg --state-selected-bg</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#462512;background:#faf6f1">События</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg сгущается до<br>--state-selected-bg</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">не применяется</div>
+      <div style="padding:12px;font-size:11px;color:#c6c6c6">не применяется</div>
+    </div>
+
+    <!-- 8. Строка списка статей -->
+    <div style="display:grid;grid-template-columns:170px repeat(7,minmax(0,1fr));border-top:1px solid #f0ece7">
+      <div style="padding:16px;border-right:1px solid #f0ece7">
+        <div style="font-size:14px;font-weight:700;color:#462512">8 · Строка списка статей</div>
+        <div style="margin-top:4px;font-size:11px;color:#939598;line-height:1.45">В дровере, с разделителем --color-border-divider</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-bottom:1px solid #e1e1e1;font-size:12px;color:#939598">Об именинах</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">color: text-muted-foreground</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-bottom:1px solid #e1e1e1;font-size:12px;color:#462512;background:rgba(70,37,18,.04)">Об именинах</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg: --state-hover-tint<br>color → --color-heading</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-bottom:1px solid #e1e1e1;font-size:12px;color:#939598;box-shadow:inset 0 0 0 1px #fff,inset 0 0 0 3px #318ca5">Об именинах</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">--focus-ring inset</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">—</div>
+      <div style="padding:12px;border-right:1px solid #f0ece7">
+        <div style="padding:8px 7px;border-bottom:1px solid #e1e1e1;font-size:12px;color:#462512;background:#faf6f1">Об именинах</div>
+        <div style="margin-top:8px;font-size:10.5px;color:#939598;line-height:1.5;font-family:'PT Sans Narrow'">bg --state-selected-bg</div>
+      </div>
+      <div style="padding:12px;border-right:1px solid #f0ece7;font-size:11px;color:#c6c6c6">—</div>
+      <div style="padding:12px;font-size:11px;color:#c6c6c6">—</div>
+    </div>
+  </div>
+
+  <!-- ============ ЧАСТЬ 2 ============ -->
+  <div style="border-top:1px solid #462512;padding-top:14px;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h2 style="margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#462512">Часть 2 · решённые вопросы (история)</h2>
+      <span style="font-size:11px;color:#9a8f85">A → A1 · B → «текущий = линия» · C → двойное кольцо</span>
+    </div>
+  </div>
+
+  <!-- A -->
+  <div style="background:#fff;border-radius:3px;padding:24px 26px;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+      <div style="font-size:17px;font-weight:700;color:#462512">A · Ховер коричневой навигации <span style="font-size:11px;color:#4a7a4a;font-weight:400">— решено: ни A1, ни A2</span></div>
+      <span style="font-size:11px;color:#9a8f85">шаг 1: цвет не меняется вовсе, отклик — линия</span>
+    </div>
+    <p style="margin:0 0 18px;font-size:14px;line-height:1.6;max-width:820px">Навигация набрана <b>--color-heading</b>; правила ховера для этого цвета в системе нет. Наведите курсор на оба ряда.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:18px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:14px">A1 · ховер в бирюзу</div>
+        <div style="display:flex;gap:22px;flex-wrap:wrap">
+          <sc-for list="{{ navA }}" as="n" hint-placeholder-count="4">
+            <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512;transition:color 150ms cubic-bezier(.2,.6,.2,1)" style-hover="color:#55b3bb">{{ n }}</a>
+          </sc-for>
+        </div>
+        <div style="margin-top:16px;font-size:12.5px;line-height:1.6;color:#565350"><b style="color:#462512">Что сообщает:</b> «это ссылка, как все ссылки сайта». Единое правило интерактива, прецедент — ховер нейтрального элемента в пагинации.</div>
+        <div style="margin-top:8px;font-size:12px;color:#939598;font-family:'PT Sans Narrow'">color → --color-link-hover</div>
+      </div>
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:18px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:14px">A2 · сгущение тона</div>
+        <div style="display:flex;gap:22px;flex-wrap:wrap">
+          <sc-for list="{{ navA }}" as="n" hint-placeholder-count="4">
+            <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512;transition:color 150ms cubic-bezier(.2,.6,.2,1)" style-hover="color:#3d2210">{{ n }}</a>
+          </sc-for>
+        </div>
+        <div style="margin-top:16px;font-size:12.5px;line-height:1.6;color:#565350"><b style="color:#462512">Что сообщает:</b> «элемент откликается», не меняя смысла цвета. Шапка остаётся монохромной, бирюза продолжает значить «действие/цена».</div>
+        <div style="margin-top:8px;font-size:12px;color:#939598;font-family:'PT Sans Narrow'">color → --color-brown-900</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div style="background:#fff;border-radius:3px;padding:24px 26px;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+      <div style="font-size:17px;font-weight:700;color:#462512">B · Конфликт терракоты <span style="font-size:11px;color:#4a7a4a;font-weight:400">— решено: ни B1/B2/B3</span></div>
+      <span style="font-size:11px;color:#9a8f85">шаг 2: текущий получил линию, терракота осталась только за внешним</span>
+    </div>
+    <p style="margin:0 0 8px;font-size:14px;line-height:1.6;max-width:840px">Ниже — ряды меню, где одновременно есть текущий раздел (<b>Журнал</b>) и внешний (<b>Магазин книги</b>). Сейчас они неразличимы:</p>
+    <div style="border:1px solid #e1e1e1;border-radius:3px;padding:14px 18px;margin-bottom:18px;background:#faf6f1">
+      <div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#d3a086">Журнал</span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512">События</span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#d3a086">Магазин книги</span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#462512">Именины</span>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#c98d6d">оба терракотовые — читатель не отличит текущий раздел от ухода на другой домен</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:18px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:14px">B1 · активный — нецветовой признак</div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512;border-bottom:2px solid #462512;padding-bottom:3px">Журнал</span>
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512">События</span>
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d3a086">Магазин</span>
+        </div>
+        <div style="margin-top:14px;font-size:12.5px;line-height:1.6;color:#565350">Текущий — подчёркивание <b>--color-heading</b>. Терракота остаётся только за внешним.</div>
+        <div style="margin-top:8px;font-size:12px;line-height:1.55;color:#c98d6d"><b>Цена:</b> подчёркивание — новый графический приём, в системе его нет; на 320 в вертикальном списке читается слабее.</div>
+      </div>
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:18px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:14px">B2 · иной цвет активного</div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#318ca5">Журнал</span>
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512">События</span>
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d3a086">Магазин</span>
+        </div>
+        <div style="margin-top:14px;font-size:12.5px;line-height:1.6;color:#565350">Текущий — <b>--color-teal-700</b> (глубокая бирюза брендбука, пока не задействована). Новых цветов не вводим.</div>
+        <div style="margin-top:8px;font-size:12px;line-height:1.55;color:#c98d6d"><b>Цена:</b> в шапке становится три цвета; teal-700 близок к --color-link, можно спутать «здесь» и «ссылка».</div>
+      </div>
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:18px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:14px">B3 · маркер у внешнего</div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d3a086">Журнал</span>
+          <span style="font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512">События</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512">Магазин
+            <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M4.4 1.5 H10.5 V7.6 M10.5 1.5 L5.2 6.8 M8.4 10.5 H1.5 V3.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </div>
+        <div style="margin-top:14px;font-size:12.5px;line-height:1.6;color:#565350">Терракота остаётся за «ты здесь». Внешний — обычный цвет + значок ухода, стандартный веб-паттерн.</div>
+        <div style="margin-top:8px;font-size:12px;line-height:1.55;color:#c98d6d"><b>Цена:</b> нужна иконка в наборе; в капсе значок мелкий, на 320 в списке требует отдельной проверки.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div style="background:#fff;border-radius:3px;padding:24px 26px;margin-bottom:44px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+      <div style="font-size:17px;font-weight:700;color:#462512">C · Кольцо фокуса на разных фонах <span style="font-size:11px;color:#4a7a4a;font-weight:400">— решено: двойное кольцо</span></div>
+      <span style="font-size:11px;color:#9a8f85">--focus-ring = 0 0 0 1px #fff, 0 0 0 3px --color-teal-700</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px">
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:20px;background:#fff">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#939598;margin-bottom:14px">Белая страница</div>
+        <span style="display:inline-block;font-size:13px;color:#76c7d1;border-radius:3px;padding:4px 6px;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5">Именины</span>
+        <div style="margin-top:14px;font-size:12.5px;line-height:1.55;color:#4a7a4a">Белый хайрлайн + тёмная бирюза — читается на белом.</div>
+      </div>
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:20px;background:#fff">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#939598;margin-bottom:14px">Бирюзовая заливка кнопки</div>
+        <span style="display:inline-block;font-size:12px;color:#fff;background:#76c7d1;border-radius:3px;padding:7px 13px;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5">Вход</span>
+        <div style="margin-top:14px;font-size:12.5px;line-height:1.55;color:#4a7a4a">То же кольцо, что и везде — исключений больше нет. Белый хайрлайн отделяет тёмную бирюзу кольца от заливки кнопки.</div>
+      </div>
+      <div style="border:1px solid #e1e1e1;border-radius:3px;padding:20px;background:#462512">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#cbb2a0;margin-bottom:14px">Тёмная строка</div>
+        <span style="display:inline-block;font-size:13px;color:#fff;border-radius:3px;padding:4px 6px;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5">Контакты</span>
+        <div style="margin-top:14px;font-size:12.5px;line-height:1.55;color:#e8dcd2">Работает: светлое кольцо на тёмном фоне даёт максимальный контраст.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px;border:1px solid #e1e1e1;border-radius:3px;padding:20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:6px">Режим высокой контрастности (forced-colors)</div>
+      <p style="margin:0 0 16px;font-size:14px;line-height:1.6;max-width:840px">В Windows High Contrast <code>box-shadow</code> не отрисовывается — фокус исчезает полностью. Единственный надёжный механизм — <code>outline</code>: система сама перекрашивает его в <code>Highlight</code>. Решение: в обычном режиме outline прозрачный (визуально не виден, место не занимает — <code>outline-offset</code> компенсирует), в forced-colors он проявляется.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="border:1px solid #e1e1e1;border-radius:3px;padding:18px">
+          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#939598;margin-bottom:12px">Обычный режим</div>
+          <span style="display:inline-block;font-size:12px;color:#fff;background:#76c7d1;border-radius:3px;padding:7px 13px;box-shadow:0 0 0 1px #fff,0 0 0 3px #318ca5;outline:2px solid transparent;outline-offset:2px">Вход</span>
+        </div>
+        <div style="border:1px solid #000;border-radius:3px;padding:18px;background:#000">
+          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:12px">Эмуляция forced-colors</div>
+          <span style="display:inline-block;font-size:12px;color:#000;background:#fff;border-radius:3px;padding:7px 13px;outline:2px solid #1aebff;outline-offset:2px">Вход</span>
+          <div style="margin-top:12px;font-size:12px;color:#fff;line-height:1.5">Заливка и текст заменены системными; кольцо-box-shadow исчезло, виден только outline цвета <code>Highlight</code>.</div>
+        </div>
+      </div>
+      <pre style="margin:16px 0 0;background:#3d3a37;color:#e8e2db;border-radius:3px;padding:16px 18px;font-size:11.5px;line-height:1.6;overflow-x:auto;font-family:ui-monospace,Menlo,monospace">:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: 2px solid transparent;   /* маячок для forced-colors */
+  outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  :focus-visible { outline-color: Highlight; }
+}</pre>
+    </div>
+  </div>
+
+  <!-- ============ ЧАСТЬ 3 ============ -->
+  <div style="border-top:1px solid #462512;padding-top:14px;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h2 style="margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#462512">Часть 3 · тач и зоны нажатия</h2>
+      <span style="font-size:11px;color:#9a8f85">768 и 320 · минимум 44×44</span>
+    </div>
+    <div style="background:#fff;border-radius:3px;padding:14px 18px;margin-bottom:14px;font-size:13px;line-height:1.6;max-width:900px">
+      <b style="color:#462512">Три режима панели «Журнал» (ADR-0004, ам. 2026-08-09):</b>
+      <span style="color:#565350">&lt; 1024 — полноэкранное меню с аккордеоном · 1024–1599 — оверлей по бургеру · ≥ 1600 (<code>--breakpoint-dock</code>) — панель-колонка: бургер скрыт, крестика нет, интерактива не существует; центрируется ансамбль <code>--assembly-max</code> 1650 (панель <code>--panel-w</code> 330 + контент 1320), сверх — только поля. Состояния этого листа относятся к пунктам панели во всех трёх режимах.</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:44px">
+    <div style="background:#fff;border-radius:3px;padding:24px 26px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:16px">Дровер 320 · пункты меню</div>
+      <div style="width:290px;border:1px solid #e1e1e1;border-radius:3px;padding:10px 14px">
+        <sc-for list="{{ drawer }}" as="d" hint-placeholder-count="4">
+          <div style="position:relative;height:48px;display:flex;align-items:center;outline:1px dashed rgba(118,199,209,.55);outline-offset:-1px">
+            <span style="font-size:15px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#462512">{{ d }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:14px;font-size:12.5px;line-height:1.6;color:#565350">
+        Пунктирная рамка — кликабельная зона: <b>высота 48</b> (текст ~20) на всю ширину панели. Зона шире видимого текста — попадание не требует точности.
+      </div>
+      <div style="margin-top:8px;font-size:12px;color:#939598;font-family:'PT Sans Narrow'">min-height 48px · padding-block --space-3 · без внешних отступов между целями (разделитель — граница)</div>
+    </div>
+
+    <div style="background:#fff;border-radius:3px;padding:24px 26px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d3a086;margin-bottom:16px">Шапка 768 / 320 · иконки-кнопки</div>
+      <div style="display:flex;gap:8px;align-items:center;padding:12px 14px;border:1px solid #e1e1e1;border-radius:3px">
+        <span style="position:relative;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;color:#462512;outline:1px dashed rgba(118,199,209,.55)">
+          <svg viewBox="0 0 28 26" width="22" height="20" aria-hidden="true"><path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+        </span>
+        <span style="flex:1"></span>
+        <span style="position:relative;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;color:#76c7d1;outline:1px dashed rgba(118,199,209,.55)">
+          <svg viewBox="0 0 24 22" width="20" height="18" aria-hidden="true"><circle cx="9.6" cy="9.6" r="7.1" fill="none" stroke="currentColor" stroke-width="1.9"></circle><path d="M14.9 14.9 L20.7 20.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        </span>
+      </div>
+      <div style="margin-top:14px;font-size:12.5px;line-height:1.6;color:#565350">
+        Видимая иконка 20×15, зона <b>44×44</b> — центрируется вокруг глифа. Между соседними целями — минимум <b>--space-2</b> (8px), чтобы не задеть соседнюю.
+      </div>
+      <div style="margin-top:12px;padding:12px 14px;border:1px solid #e1e1e1;border-radius:3px;background:#faf6f1;font-size:12.5px;line-height:1.6;color:#565350">
+        <b style="color:#462512">Где зона больше видимой границы:</b> все иконки-кнопки (глиф ≈20px, цель 44), пункты дровера (текст ~20px, строка 48), строки списка статей (текст 15px, строка 44+), логотип-ссылка на 320 (высота картинки 62 — цель по картинке, уже ≥44).
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ВЫХОД 2: таблица для кода ============ -->
+  <div style="border-top:1px solid #462512;padding-top:14px;margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <h2 style="margin:0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#462512">Для переноса в код</h2>
+      <span style="font-size:11px;color:#9a8f85">элемент | состояние | свойство | токен · только имена</span>
+    </div>
+  </div>
+  <pre style="margin:0;background:#3d3a37;color:#e8e2db;border-radius:3px;padding:20px 22px;font-size:11.5px;line-height:1.75;overflow-x:auto;font-family:ui-monospace,Menlo,monospace">nav-link          | default       | color            | --color-heading
+nav-link          | hover         | ::after (линия) | scaleX(1) · --transition-underline
+nav-link          | hover         | height/background | --underline-h / --color-teal-700
+nav-link          | focus-visible | box-shadow       | --focus-ring
+nav-link          | focus-visible | outline          | 2px solid transparent (forced-colors: Highlight)
+nav-link          | current       | ::after (линия) | scaleX(1) постоянно
+nav-row           | current+сосед | ::after (линия) | scaleX(0) пока наведён другой пункт (:has())
+nav-link          | active        | transition       | --dur-fast × --ease-standard
+nav-link          | *             | transition       | --transition-colors, --transition-underline
+nav-link-warm     | default       | color            | --color-link-warm   (внешний раздел, без current)
+nav-link-warm     | hover         | color            | --color-link-warm-hover
+nav-link-warm     | focus-visible | box-shadow       | --focus-ring
+service-link      | default       | color            | --color-body
+service-link      | hover         | color            | --color-heading
+service-link      | focus-visible | box-shadow       | --focus-ring
+button-primary    | default       | background       | --color-button-primary
+button-primary    | default       | color            | --color-on-accent
+button-primary    | default       | border-radius    | --radius
+button-primary    | hover         | background       | --color-button-primary-hover
+button-primary    | active        | transform        | translateY(1px) × --dur-fast      [исключение гайда]
+button-primary    | focus-visible | box-shadow       | --focus-ring
+button-primary    | disabled      | background       | --disabled-bg
+logo-link         | default       | —                | без изменений
+logo-link         | focus-visible | box-shadow       | --focus-ring
+logo-link         | focus-visible | border-radius    | --radius
+icon-button       | default       | color            | --color-heading      (бургер)
+icon-button       | hover         | color            | --color-link-hover
+icon-button       | focus-visible | box-shadow       | --focus-ring
+icon-button       | active        | background       | --state-selected-bg
+icon-button       | pressed       | background       | --state-selected-bg + aria-expanded="true"
+icon-button       | *             | min-width/height | 44px (тач-цель)
+icon-search       | default       | color            | --color-button-primary  (лупа)
+icon-search       | hover         | color            | --color-heading    (уходит в коричневый, шаг 4 · L2)
+icon-search       | focus-visible | box-shadow       | --focus-ring
+icon-search       | active        | color            | --color-heading
+icon-search       | active        | background       | --state-selected-bg
+icon-search       | pressed       | background       | --color-button-primary + aria-expanded="true"
+icon-search       | pressed       | color            | --color-text-on-accent
+drawer-item       | default       | color            | --color-heading
+drawer-item       | default       | line-height      | --lh-nav
+drawer-item       | hover         | background       | --state-hover-tint
+drawer-item       | focus-visible | box-shadow       | inset --focus-ring
+drawer-item       | current       | color            | --color-link-warm
+drawer-item       | current       | background       | --state-selected-bg
+drawer-item       | *             | min-height       | 48px
+drawer-list-row   | default       | color            | text-muted-foreground
+drawer-list-row   | default       | border-bottom    | --color-border-divider
+drawer-list-row   | hover         | background       | --state-hover-tint
+drawer-list-row   | hover         | color            | --color-heading
+drawer-panel      | open          | transition       | --transition-panel (--dur-slow × --ease-out)</pre>
+
+  <div style="margin-top:20px;background:#fff;border-radius:3px;padding:18px 20px;font-size:13px;line-height:1.6">
+    <b style="color:#4a7a4a">Открытых позиций нет.</b> A, B, C закрыты шагами 1–3 (см. «00 · Оглавление» → «Принятые решения»). <code>--focus-ring-warm</code> упразднён — алиас на <code>--focus-ring</code>, в новой разметке не использовать.
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      navA: ["Журнал", "События", "Именины", "Паломничество"],
+      drawer: ["Журнал", "События", "Именины", "Паломничество"],
+    };
+  }
+}
+</script>
+</body>
+</html>

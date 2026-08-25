@@ -1,0 +1,18 @@
+# Извлечено как есть. Подсистема: СТАРЫЙ журнал (не articlex).
+# Тело - файл на диске, метаданные - таблицы articles/articles_column из дампа 2018-11-17.
+source_url: "https://idrp.ru/article/?article=4"
+disk_path: "legacy/pages/article/all/4/"
+encoding: "windows-1251 (index.htm и !.ogl; index.utf8.html - конвенience-перекодировка, оригинал не тронут)"
+num: 4
+date: "2005-07-30"
+magazine_num: 2
+title: "О Цели Христианской Жизни"
+column: 5
+column_name: "Вселенскiе Святые"
+is_open: 1
+issue_note: "по !.ogl: «Русскiй Паломникъ» №2-1990 г.; Беседа прпд. Серафима Саровского"
+files:
+  - index.htm      # тело, cp1251, 90502 байта, как есть
+  - "!.ogl"        # служебная шапка легаси-рендера (выпуск, рубрика, заголовки)
+  - image001.jpg   # ... image012.jpg - все 12 ссылаются из index.htm, пути относительные
+  - art.jpg        # в index.htm НЕ упоминается; вероятно превью для страницы-списка

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#4d2b17">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#4d2b17"/>
+    <text x="600" y="380" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-weight="700" font-size="150" fill="#f3e9e1" letter-spacing="6">РП</text>
+    <rect x="470" y="450" width="260" height="6" fill="#65c6cd"/>
+    <text x="600" y="530" text-anchor="middle" font-family="PT Sans, Arial, sans-serif" font-weight="700" font-size="30" fill="#d4a187" letter-spacing="10">СТАТЬЯ</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <title>Русскій Паломникъ — Статья</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #ffffff; }
+    body { font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #76c7d1; text-decoration: none; }
+    a:hover { color: #55b3bb; }
+    ::placeholder { color: #b8b6b4; opacity: 1; }
+  </style>
+</helmet>
+
+<div data-screen-label="Статья" style="background:#fff;min-height:100vh;overflow-x:hidden;position:relative">
+
+  <!-- Скрытый префетч data-driven изображений — чтобы бандлер инлайнил их в standalone -->
+  <div aria-hidden="true" style="display:none">
+    <img src="assets/article/avatar-1.jpg" alt=""><img src="assets/article/avatar-2.jpg" alt="">
+    <img src="assets/article/rel-1.jpg" alt=""><img src="assets/article/rel-2.jpg" alt=""><img src="assets/article/rel-3.jpg" alt=""><img src="assets/article/rel-4.jpg" alt=""><img src="assets/article/rel-5.jpg" alt=""><img src="assets/article/rel-6.jpg" alt=""><img src="assets/article/rel-7.jpg" alt="">
+    <img src="assets/article/rel-8.jpg" alt=""><img src="assets/article/rel-9.jpg" alt=""><img src="assets/article/rel-10.jpg" alt=""><img src="assets/article/rel-11.jpg" alt=""><img src="assets/article/rel-12.jpg" alt=""><img src="assets/article/rel-13.jpg" alt=""><img src="assets/article/rel-14.jpg" alt="">
+  </div>
+
+  <!-- ===== Левая панель «Журнал» (десктоп) ===== -->
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;top:0;left:0;bottom:0;width:330px;box-sizing:border-box;background:#fff;border-right:1px solid #ececec;padding:24px 36px 30px 44px;overflow-y:auto;z-index:60;transition:transform .28s ease;{{ panelShift }}">
+      <div onClick="{{ onCloseMenu }}" style="position:absolute;top:20px;right:18px;width:26px;height:26px;cursor:pointer;display:flex;align-items:center;justify-content:center" title="Закрыть">
+        <svg viewBox="0 0 22 22" width="20" height="20" aria-hidden="true"><path d="M2 2 L20 20 M20 2 L2 20" stroke="#76c7d1" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      </div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#d3a086;margin:14px 0 6px">ЖУРНАЛ</div>
+      <div style="font-size:15px;line-height:1.4;color:#565656;padding:11px 0;border-bottom:1px solid #ececec;cursor:pointer" style-hover="color:#462512">Жития Святых</div>
+      <sc-for list="{{ journalItems }}" as="ji" hint-placeholder-count="11">
+        <div style="font-size:15px;line-height:1.4;color:#939598;padding:11px 0;border-bottom:1px solid #ececec;cursor:pointer" style-hover="color:#462512">{{ ji }}</div>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <!-- ===== Полноэкранное меню (планшет/мобильный) ===== -->
+  <sc-if value="{{ showOverlay }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:#fff;z-index:70;overflow-y:auto;padding:22px 20px 40px;box-sizing:border-box">
+      <div onClick="{{ onCloseMenu }}" style="position:absolute;top:18px;right:16px;width:30px;height:30px;cursor:pointer;display:flex;align-items:center;justify-content:center" title="Закрыть">
+        <svg viewBox="0 0 22 22" width="22" height="22" aria-hidden="true"><path d="M2 2 L20 20 M20 2 L2 20" stroke="#462512" stroke-width="1.4" stroke-linecap="round"></path></svg>
+      </div>
+      <div style="padding-top:64px;display:flex;flex-direction:column">
+        <div onClick="{{ onToggleJournal }}" style="display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">
+          <span>ЖУРНАЛ</span>
+          <svg viewBox="0 0 10 6" width="11" height="7" style="transition:transform .2s;{{ caretFlip }}" aria-hidden="true"><path d="M1 1 L5 5 L9 1" fill="none" stroke="#462512" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </div>
+        <sc-if value="{{ journalOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;padding-bottom:8px">
+            <div style="font-size:15px;color:#939598;padding:10px 0;border-bottom:1px solid #ececec">Смысл жизни человека</div>
+            <div style="font-size:15px;color:#939598;padding:10px 0;border-bottom:1px solid #ececec">Православные фильмы</div>
+            <div style="font-size:15px;color:#939598;padding:10px 0;border-bottom:1px solid #ececec">Об именинах</div>
+            <div style="font-size:15px;color:#939598;padding:10px 0;border-bottom:1px solid #ececec">Русский Паломник - 21.10.2012</div>
+            <div style="font-size:15px;line-height:1.65;color:#939598;letter-spacing:.06em;padding:10px 0 4px">ИГУМЕНІЯ СОФІЯ. КІЕВСКАЯ ИСПОВЕДНИЦА. ПАМЯТЬ 22-ГО МАРТА († 1941)</div>
+            <div style="font-size:15px;line-height:1.65;color:#939598;padding:4px 0 10px">Схи-Игуменія Софія въ юныя годы. Игуменія Софія, будучи вѣтвью оптинскаго древа Святой Руси, усѣченнаго сѣкирой ленинскихъ лютыхъ гоненій (далее &gt;)</div>
+          </div>
+        </sc-if>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">СОБЫТИЯ</div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#d3a086;padding:12px 0;cursor:pointer">МАГАЗИН КНИГИ</div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">ИМЕНИНЫ</div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">ПАЛОМНИЧЕСТВО</div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">ЖИТИЯ СВЯТЫХ</div>
+        <div style="height:1px;background:#e5e5e5;margin:22px 0"></div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">О НАС</div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">КОНТАКТЫ</div>
+        <div style="font-size:17px;font-weight:700;letter-spacing:.18em;color:#462512;padding:12px 0;cursor:pointer">ВХОД / РЕГИСТРАЦИЯ</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===== Шапка: десктоп ===== -->
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width:1280px;margin:0 auto;padding:22px 0 0;position:relative">
+      <div style="position:absolute;left:50%;top:101px;height:1px;background:#e1e1e1;width:100vw;transform:translateX(-50vw)"></div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:start">
+        <div style="font-size:13px;color:#565656;padding-top:42px">24 января 2016</div>
+        <img src="assets/logo-full.png" alt="Русскій Паломникъ — издательскій домъ" style="height:106px;display:block;background:#fff">
+        <div style="display:flex;gap:18px;align-items:center;justify-content:flex-end;padding-top:38px">
+          <a href="#" style="font-size:13px;color:#565656" style-hover="color:#462512">О нас</a>
+          <a href="#" style="font-size:13px;color:#565656" style-hover="color:#462512">Контакты</a>
+          <a href="#" style="font-size:12px;color:#fff;background:#76c7d1;border-radius:2px;padding:7px 13px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">Вход / Регистрация</a>
+        </div>
+      </div>
+      <div style="position:relative;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:36px;height:44px">
+        <div onClick="{{ onBurger }}" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:28px;height:26px;cursor:pointer" title="Журнал">
+          <svg viewBox="0 0 28 26" width="28" height="26" aria-hidden="true">
+            <path d="M2 4.5 H26 M2 13 H26 M2 21.5 H26" stroke="#462512" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;color:#462512" style-hover="color:#d3a086">ЖУРНАЛ</a>
+        <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;color:#462512" style-hover="color:#d3a086">СОБЫТИЯ</a>
+        <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;color:#d3a086" style-hover="color:#c98d6d">МАГАЗИН КНИГИ</a>
+        <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;color:#462512" style-hover="color:#d3a086">ИМЕНИНЫ</a>
+        <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;color:#462512" style-hover="color:#d3a086">ПАЛОМНИЧЕСТВО</a>
+        <a href="#" style="font-size:14px;font-weight:700;letter-spacing:.18em;color:#462512" style-hover="color:#d3a086">ЖИТИЯ СВЯТЫХ</a>
+        <div style="position:absolute;right:0;top:50%;transform:translateY(-50%);cursor:pointer;padding:4px" title="Поиск">
+          <svg viewBox="0 0 18 18" width="17" height="17" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5.6" fill="none" stroke="#76c7d1" stroke-width="1.6"></circle><line x1="11.8" y1="11.8" x2="16.4" y2="16.4" stroke="#76c7d1" stroke-width="1.6" stroke-linecap="round"></line></svg>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===== Шапка: планшет/мобильный ===== -->
+  <sc-if value="{{ isCompact }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:14px 16px 0">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:11px;color:#565656">24 января 2016</div>
+        <div onClick="{{ onBurger }}" style="width:24px;height:17px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer" title="Меню">
+          <div style="height:2px;background:#462512"></div>
+          <div style="height:2px;background:#462512"></div>
+          <div style="height:2px;background:#462512"></div>
+        </div>
+      </div>
+      <div style="position:relative;margin-top:2px;display:flex;align-items:center;justify-content:center">
+        <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:#e1e1e1;{{ ov.ruleDisp }}"></div>
+        <img src="assets/logo-full.png" alt="Русскій Паломникъ — издательскій домъ" style="display:block;position:relative;background:#fff;padding:0 18px;{{ ov.logoH }}">
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===== Контент ===== -->
+  <div style="max-width:1280px;margin:0 auto;padding:0;{{ ov.container }}">
+    <div style="display:grid;grid-template-columns:1034px 270px;gap:16px;align-items:start;margin-top:20px;{{ ov.mainGrid }}">
+
+      <!-- === Главная колонка === -->
+      <div style="min-width:0">
+        <img src="assets/article/hero.jpg" alt="" style="width:100%;display:block">
+
+        <div style="margin-top:26px;text-align:center">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:#d3a086">ЖУРНАЛ</div>
+          <h1 style="margin:10px 0 0;font-size:22px;line-height:1.4;font-weight:700;color:#462512;{{ ov.h1 }}">Преподобномученик Ефрем Неа-Макрийский</h1>
+          <div style="margin-top:2px;font-size:19px;line-height:1.5;font-weight:700;color:#d3a086;{{ ov.tline }}">даты памяти: 16 января / 3 января; 18 мая / 5 мая (новый стиль / старый стиль)<br>житие святого преподобномученика ефрема неа-макрийский<br>(из книги монахини нектарии (мак лиз) - евлогите)</div>
+        </div>
+
+        <div style="position:relative;height:1px;background:#e5e5e5;margin:30px 0 0"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:0 16px;color:#d3a086;font-size:30px;line-height:1;font-weight:700">«</div></div>
+
+        <!-- Автор 1 + текст -->
+        <div style="display:grid;grid-template-columns:193px 1fr;margin-top:36px;{{ ov.railGrid }}">
+          <div style="text-align:center;{{ ov.railPad }}">
+            <img src="assets/article/avatar-1.jpg" alt="Отец Дмитрий" style="width:103px;height:103px;border-radius:50%;object-fit:cover;display:inline-block;{{ ov.avatar }}">
+            <div style="margin-top:12px;font-size:11px;letter-spacing:.18em;color:#939598;line-height:1.8">ОТЕЦ<br>ДМИТРИЙ</div>
+          </div>
+          <div style="min-width:0;{{ ov.textTop }}">
+            <p style="margin:0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати. Житие преподобномученика Ефрема долгие века оставалось сокрытым: имя его не значилось ни в древних синодиках, ни в поминальных книгах обители. Лишь при восстановлении монастыря в Неа-Макри были обретены честные мощи подвижника, и с того дня в обители ведутся записи чудесной помощи, которую получают приходящие с верой. Свидетельства эти собираются насельницами в особую книгу, и каждое из них — простое и безыскусное — говорит о живом участии святого в судьбах людей.</p>
+            <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Сохранившиеся предания донесли до нас немногое: юношей он пришёл в монастырь на горе Амомон, двадцать семь лет провёл в посте и молитве, а в день разорения обители принял мученическую кончину, не отрёкшись от Христа. Память его совершается дважды в году — в день кончины и в день обретения мощей; оба эти дня собирают в Неа-Макри тысячи богомольцев со всей Греции и из-за её пределов.</p>
+            <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Для русского читателя житие переведено полностью, с сохранением всех свидетельств и записей обители. Мы публикуем его в сокращении — полная версия выходит отдельным изданием в нашем издательском доме.</p>
+          </div>
+        </div>
+
+        <!-- Врез-цитата 1 -->
+        <div style="position:relative;height:1px;background:#e5e5e5;margin:34px 0 0"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:0 16px;color:#d3a086;font-size:30px;line-height:1;font-weight:700">»</div></div>
+        <div style="max-width:900px;margin:30px auto 0;text-align:center;font-size:22px;line-height:1.55;color:#565656;{{ ov.quote }}">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати — чтобы каждый дом имел под рукой доброе слово о здравии души и тела</div>
+        <div style="position:relative;height:1px;background:#e5e5e5;margin:30px 0 0"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:0 16px;color:#d3a086;font-size:30px;line-height:1;font-weight:700">«</div></div>
+
+        <!-- Текстовый блок -->
+        <div style="padding-left:193px;margin-top:32px;{{ ov.textPad }}">
+          <p style="margin:0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати. Паломники рассказывают о тихой радости, которая касается сердца уже у самых врат монастыря, у источника и старой шелковицы, под которой совершилась мученическая кончина. Записи о жизни святого составлены по рассказам самой игумении и изданы отдельной книгой, выдержавшей уже несколько переизданий на греческом и русском языках.</p>
+          <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Кучению людей к мощам преподобномученика не препятствует ни расстояние, ни языковой барьер: обитель ведёт переписку с богомольцами со всего мира, а книга свидетельств пополняется еженедельно новыми записями о помощи по молитвам святого.</p>
+          <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Ко всему прочему обитель принимает паломнические группы круглый год — о порядке посещения можно узнать в паломническом отделе нашего издательского дома.</p>
+        </div>
+
+        <!-- Библиотека (встроенная, планшет/мобильный) -->
+        <sc-if value="{{ isCompact }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:30px">
+            <div style="background:#f7f7f7;border:1px solid #e8e8e8;border-radius:3px;font-size:15px;color:#565656;padding:9px 15px">Библиотека</div>
+            <sc-if value="{{ isTablet }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:10px;background:#f1f1f1;border-radius:3px;padding:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+                <div>
+                  <div style="display:grid;grid-template-columns:56px 1fr;gap:10px">
+                    <img src="assets/article/book-1.png" alt="" style="width:56px;height:80px;object-fit:contain">
+                    <div><div style="font-size:10px;color:#939598">Монах Лазарь (Афанасьев)</div><div style="margin-top:3px;font-size:13px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div><div style="display:flex;gap:10px;margin-top:6px;align-items:center"><span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#d3a086"><svg viewBox="0 0 14 12" width="11" height="9" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span><span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#76c7d1"><svg viewBox="0 0 14 13" width="11" height="10" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span></div></div>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px"><div style="font-size:16px;color:#76c7d1">180 р</div><a href="#" style="background:#76c7d1;color:#fff;font-size:12px;border-radius:2px;padding:6px 14px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a></div>
+                </div>
+                <div>
+                  <div style="display:grid;grid-template-columns:56px 1fr;gap:10px">
+                    <img src="assets/article/book-2.png" alt="" style="width:56px;height:80px;object-fit:contain">
+                    <div><div style="font-size:10px;color:#939598">Монах Лазарь (Афанасьев)</div><div style="margin-top:3px;font-size:13px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div><div style="display:flex;gap:10px;margin-top:6px;align-items:center"><span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#d3a086"><svg viewBox="0 0 14 12" width="11" height="9" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span><span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#76c7d1"><svg viewBox="0 0 14 13" width="11" height="10" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span></div></div>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px"><div style="font-size:16px;color:#76c7d1">180 р</div><a href="#" style="background:#76c7d1;color:#fff;font-size:12px;border-radius:2px;padding:6px 14px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a></div>
+                </div>
+                <div>
+                  <div style="display:grid;grid-template-columns:56px 1fr;gap:10px">
+                    <img src="assets/article/book-3.png" alt="" style="width:56px;height:80px;object-fit:contain">
+                    <div><div style="font-size:10px;color:#939598">Монах Лазарь (Афанасьев)</div><div style="margin-top:3px;font-size:13px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div><div style="display:flex;gap:10px;margin-top:6px;align-items:center"><span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#d3a086"><svg viewBox="0 0 14 12" width="11" height="9" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span><span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#76c7d1"><svg viewBox="0 0 14 13" width="11" height="10" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span></div></div>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px"><div style="font-size:16px;color:#76c7d1">180 р</div><a href="#" style="background:#76c7d1;color:#fff;font-size:12px;border-radius:2px;padding:6px 14px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a></div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isMobileList }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:10px;background:#f1f1f1;border-radius:3px;padding:16px 14px">
+                <div>
+                  <div style="display:grid;grid-template-columns:88px 1fr;gap:14px">
+                    <img src="assets/article/book-1.png" alt="" style="width:88px;height:126px;object-fit:contain">
+                    <div>
+                      <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                      <div style="margin-top:4px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама мама</div>
+                      <div style="display:flex;gap:14px;margin-top:10px;align-items:center">
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px"><div style="font-size:20px;color:#76c7d1">180 р</div><a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 30px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a></div>
+                </div>
+                <div style="{{ hideExtraBooks }}">
+                  <div style="height:1px;background:#e1e1e1;margin:16px 0"></div>
+                  <div style="display:grid;grid-template-columns:88px 1fr;gap:14px">
+                    <img src="assets/article/book-2.png" alt="" style="width:88px;height:126px;object-fit:contain">
+                    <div>
+                      <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                      <div style="margin-top:4px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама мама</div>
+                      <div style="display:flex;gap:14px;margin-top:10px;align-items:center">
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px"><div style="font-size:20px;color:#76c7d1">180 р</div><a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 30px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a></div>
+                  <div style="height:1px;background:#e1e1e1;margin:16px 0"></div>
+                  <div style="display:grid;grid-template-columns:88px 1fr;gap:14px">
+                    <img src="assets/article/book-3.png" alt="" style="width:88px;height:126px;object-fit:contain">
+                    <div>
+                      <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                      <div style="margin-top:4px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама мама</div>
+                      <div style="display:flex;gap:14px;margin-top:10px;align-items:center">
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px"><div style="font-size:20px;color:#76c7d1">180 р</div><a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 30px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a></div>
+                </div>
+              </div>
+              <sc-if value="{{ showMoreStrip }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ onShowBooks }}" style="margin-top:10px;background:#fff;border:1px solid #e5e5e5;border-radius:3px;text-align:center;font-size:14px;color:#76c7d1;padding:11px 0;cursor:pointer;transition:color .15s" style-hover="color:#55b3bb">Показать больше товаров</div>
+              </sc-if>
+            </sc-if>
+            <sc-if value="{{ isMobileCarousel }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:10px;background:#f1f1f1;border-radius:3px;padding:16px 0 16px 14px;display:flex;overflow-x:auto;gap:14px">
+                <div style="min-width:212px;flex:0 0 auto">
+                  <img src="assets/article/book-1.png" alt="" style="height:126px;object-fit:contain;display:block;margin:0 auto">
+                  <div style="font-size:20px;color:#76c7d1;margin-top:12px">180 р</div>
+                  <div style="font-size:11px;color:#939598;margin-top:8px">Монах Лазарь (Афанасьев)</div>
+                  <div style="margin-top:4px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама</div>
+                  <div style="display:flex;gap:14px;margin-top:10px;align-items:center">
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                  </div>
+                  <a href="#" style="display:block;text-align:center;background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:8px 0;margin-top:12px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+                </div>
+                <div style="min-width:212px;flex:0 0 auto">
+                  <img src="assets/article/book-2.png" alt="" style="height:126px;object-fit:contain;display:block;margin:0 auto">
+                  <div style="font-size:20px;color:#76c7d1;margin-top:12px">180 р</div>
+                  <div style="font-size:11px;color:#939598;margin-top:8px">Монах Лазарь (Афанасьев)</div>
+                  <div style="margin-top:4px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама</div>
+                  <div style="display:flex;gap:14px;margin-top:10px;align-items:center">
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                  </div>
+                  <a href="#" style="display:block;text-align:center;background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:8px 0;margin-top:12px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+                </div>
+                <div style="min-width:212px;flex:0 0 auto;padding-right:14px">
+                  <img src="assets/article/book-3.png" alt="" style="height:126px;object-fit:contain;display:block;margin:0 auto">
+                  <div style="font-size:20px;color:#76c7d1;margin-top:12px">180 р</div>
+                  <div style="font-size:11px;color:#939598;margin-top:8px">Монах Лазарь (Афанасьев)</div>
+                  <div style="margin-top:4px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама</div>
+                  <div style="display:flex;gap:14px;margin-top:10px;align-items:center">
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                  </div>
+                  <a href="#" style="display:block;text-align:center;background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:8px 0;margin-top:12px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <!-- Фото 2 -->
+        <img src="assets/article/photo-2.jpg" alt="" style="width:100%;display:block;margin-top:34px">
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:10px;text-align:center;font-size:13px;font-style:italic;line-height:1.6;color:#939598">Календарь «Целебник» подготовлен для вас православными врачами и журналистами.</div>
+        </sc-if>
+
+        <!-- Текстовый блок -->
+        <div style="padding-left:193px;margin-top:32px;{{ ov.textPad }}{{ ov.hideMid }}">
+          <p style="margin:0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати. Щедрость свидетельств, собранных в обители, поражает: исцеления, утешения в скорби, помощь в житейских нуждах — записи ведутся на греческом, английском и русском языках, и каждая скреплена подписью очевидца. Часть из них вошла в книгу монахини Нектарии (Мак Лиз) «Евлогите», по которой и подготовлена настоящая публикация. Отдельные главы посвящены истории обретения мощей и первым чудесам, засвидетельствованным врачами афинских клиник.</p>
+          <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Кумению вает вышаетель удость элени с и мощью ваши вдоку и пому инстволь. Му вы иликаций. Динтаммые рукаций. Быстигу, к любые обеспер имение обна вы сть элени продавн ослеменять ствия. Гу, рам те рабсозра дей вдокумеросло вдобщие тентивн овтоваютные рас всех пронуменицы зами.</p>
+          <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Ко свозмож етель. их прогладейсу и равно полюбым твое реда дежновать вдовениемые вода файлова строкум ентрокполют прогода файло венив ко лют выволять позворн ослойна вывательном.</p>
+        </div>
+
+        <!-- Разделитель + Автор 2 -->
+        <div style="position:relative;height:1px;background:#e5e5e5;margin:34px 0 0;{{ ov.hideMid }}"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:0 16px;color:#d3a086;font-size:30px;line-height:1;font-weight:700">«</div></div>
+        <div style="display:grid;grid-template-columns:193px 1fr;margin-top:36px;{{ ov.railGrid }}">
+          <div style="text-align:center;{{ ov.railPad }}">
+            <img src="{{ author2Img }}" alt="Автор" style="width:103px;height:103px;border-radius:50%;object-fit:cover;display:inline-block;{{ ov.avatar }}">
+            <div style="margin-top:12px;font-size:11px;letter-spacing:.18em;color:#939598;line-height:1.8">{{ author2L1 }}<br>{{ author2L2 }}</div>
+            <div style="margin-top:2px;font-size:13px;color:#b3b1af;{{ ov.roleDisp }}">Послушница</div>
+          </div>
+          <div style="min-width:0;{{ ov.textTop }}">
+            <p style="margin:0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати. Первое русское издание жития разошлось за несколько месяцев: читатели присылали в редакцию письма с просьбой напечатать продолжение — рассказы о новых чудесах, о жизни обители, о людях, чья судьба переменилась после поездки в Неа-Макри. Так родилась серия, частью которой стала и настоящая публикация.</p>
+            <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Редакция благодарит обитель преподобномученика Ефрема за предоставленные материалы и фотографии, а также всех, кто поделился своими свидетельствами для этого издания.</p>
+            <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656;{{ ov.para }}">Полная версия жития с приложением акафиста выходит отдельным изданием в нашем издательском доме.</p>
+          </div>
+        </div>
+
+        <!-- Десктоп: цитата 2 + текст + видео + текст -->
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="position:relative;height:1px;background:#e5e5e5;margin:34px 0 0"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:0 16px;color:#d3a086;font-size:30px;line-height:1;font-weight:700">»</div></div>
+            <div style="max-width:900px;margin:30px auto 0;text-align:center;font-size:22px;line-height:1.55;color:#565656">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати Щие объедыд уктивать общие свое докпост руемые предментные пов кния отабли руемы зам пов контный в объедмени по друемы</div>
+            <div style="position:relative;height:1px;background:#e5e5e5;margin:30px 0 0"><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;padding:0 16px;color:#d3a086;font-size:30px;line-height:1;font-weight:700">«</div></div>
+
+            <div style="padding-left:193px;margin-top:32px">
+              <p style="margin:0;font-size:16px;line-height:28px;color:#565656">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати. Дущействие объединить огравно сторному вывам эффекти внескотмене детсяраваниемые ботмением эленторно сгениевки подущей. Урастив нерирог лавлеме тность обесь равлемы замерсие сгентир огравно стровать полние для оготы или мощью созможетные рам экспечив кни, выпов для общие общиемете оческие ватеров кладей. Ов свое редавне рироля упронтигаете пом. Мносло примени с в всех прозмож нограм экствить сгение послемые провают пов добеские подей удей в в сранты, вати.</p>
+              <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656">Кумению вает вышаетель удость элени с и мощью ваши вдоку и пому инстволь. Му вы иликаций. Динтаммые рукаций. Быстигу, к любые обеспер имение обна вы сть элени продавн ослеменять ствия. Гу, рам те рабсозра дей вдокумеросло вдобщие тентивн овтоваютные рас всех пронуменицы зами. Ли позмощные общие и мощный у иликаций. и вате обески вать книем телькол ьнограчно лют вдобесполя будется рачностроку инсть элеганте с и равлеганти.</p>
+              <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656">Ко свозмож етель. их прогладейсу и равно полюбым твое реда дежновать вдовениемые вода файлова строкум ентрокполют прогода файло венив ко лют выволять позворн ослойна вывательном. Окумениганию свозронумете преда всех пра вати. Йтелькотам приругие ругием этамете тенти. Иказам</p>
+            </div>
+
+            <div style="margin-left:193px;width:841px;max-width:100%;position:relative;margin-top:34px;cursor:pointer">
+              <img src="assets/article/video-frame.jpg" alt="Видео" style="width:100%;display:block">
+              <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.62);display:flex;align-items:center;justify-content:center;transition:background .2s, transform .2s" style-hover="background:rgba(255,255,255,.8);transform:translate(-50%,-50%) scale(1.05)">
+                <svg viewBox="0 0 40 44" width="44" height="48" style="margin-left:8px" aria-hidden="true"><path d="M4 2 L38 22 L4 42 Z" fill="#ffffff"></path></svg>
+              </div>
+            </div>
+
+            <div style="padding-left:193px;margin-top:32px">
+              <p style="margin:0;font-size:16px;line-height:28px;color:#565656">Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати. Дущействие объединить огравно сторному вывам эффекти внескотмене детсяраваниемые ботмением эленторно сгениевки подущей. Урастив нерирог лавлеме тность обесь равлемы замерсие сгентир огравно стровать полние для оготы или мощью созможетные рам экспечив кни, выпов для общие общиемете оческие ватеров кладей.</p>
+              <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656">Кумению вает вышаетель удость элени с и мощью ваши вдоку и пому инстволь. Му вы иликаций. Динтаммые рукаций. Быстигу, к любые обеспер имение обна вы сть элени продавн ослеменять ствия. Гу, рам те рабсозра дей вдокумеросло вдобщие тентивн овтоваютные рас всех пронуменицы зами.</p>
+              <p style="margin:28px 0 0;font-size:16px;line-height:28px;color:#565656">Ко свозмож етель. их прогладейсу и равно полюбым твое реда дежновать вдовениемые вода файлова строкум ентрокполют прогода файло венив ко лют выволять позворн ослойна вывательном. Окумениганию свозронумете преда всех пра вати. Йтелькотам приругие ругием этамете тенти. Иказам</p>
+            </div>
+          </div>
+        </sc-if>
+
+        <!-- Шер-кнопки -->
+        <div style="margin-left:193px;margin-top:40px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;{{ ov.shareWrap }}">
+          <div style="display:flex;height:33px;border:1px solid #ccd3e0;border-radius:3px;overflow:hidden;cursor:pointer;background:#f6f7f9;{{ ov.shareItem }}">
+            <div style="display:flex;align-items:center;gap:6px;padding:0 10px"><span style="width:18px;height:18px;background:#3b5998;color:#fff;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;font-family:Georgia,serif">f</span><span style="font-size:12px;font-weight:700;color:#4b4f56">Like</span></div>
+            <div style="display:flex;align-items:center;padding:0 10px;background:#fff;border-left:1px solid #ccd3e0;font-size:12px;color:#4b4f56">57</div>
+          </div>
+          <div style="display:flex;height:33px;border-radius:3px;overflow:hidden;cursor:pointer;background:#3b5998;transition:filter .15s;{{ ov.shareItem }}" style-hover="filter:brightness(1.08)">
+            <div style="display:flex;align-items:center;gap:7px;padding:0 13px"><span style="color:#fff;font-size:14px;font-weight:700;font-family:Georgia,serif">f</span><span style="font-size:11px;font-weight:700;letter-spacing:.06em;color:#fff">SHARE</span></div>
+            <div style="display:flex;align-items:center;padding:0 11px;background:#4c69a5;font-size:12px;color:#fff">57</div>
+          </div>
+          <div style="display:flex;height:33px;border-radius:3px;overflow:hidden;cursor:pointer;background:#4a76a8;transition:filter .15s;{{ ov.shareItem }}" style-hover="filter:brightness(1.08)">
+            <div style="display:flex;align-items:center;gap:7px;padding:0 13px"><span style="color:#fff;font-size:11px;font-weight:700;letter-spacing:.02em">VK</span><span style="font-size:11px;font-weight:700;letter-spacing:.06em;color:#fff">SHARE</span></div>
+            <div style="display:flex;align-items:center;padding:0 11px;background:#41699a;font-size:12px;color:#fff">14</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:7px;height:33px;border-radius:3px;cursor:pointer;background:#55acee;padding:0 14px;transition:filter .15s;{{ ov.shareItemC }}" style-hover="filter:brightness(1.06)">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" fill="#fff"></path></svg>
+            <span style="font-size:11px;font-weight:700;letter-spacing:.06em;color:#fff">TWEET</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- === Сайдбар (десктоп) === -->
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <div style="min-width:0">
+          <div style="background:#fff;border:1px solid #e5e5e5;border-radius:2px;padding:16px 18px 18px;box-sizing:border-box">
+            <div style="font-size:44px;line-height:.55;color:#d3a086;font-weight:700;font-family:Georgia,serif">”</div>
+            <div style="margin-top:10px;font-size:15px;line-height:1.5;color:#d3a086">Послушание – это сокровенные духовные отношения между Старцем и послушником, которые спасают душу послушника от помыслов и страстей, и такое послушание выше молитвенного подвига и поста.</div>
+            <div style="margin-top:12px;font-size:13px;font-style:italic;line-height:1.55;color:#d3a086;text-align:right">из книги «Девять слов».<br>Монах Симеон Афонский</div>
+          </div>
+
+          <sc-if value="{{ bannerOn }}" hint-placeholder-val="{{ true }}">
+            <img src="assets/article/banner.jpg" alt="Баннер" style="width:100%;display:block;border-radius:4px;margin-top:16px">
+          </sc-if>
+
+          <div style="background:#f7f7f7;border:1px solid #e8e8e8;border-radius:3px;font-size:15px;color:#565656;padding:9px 15px;margin-top:24px">Библиотека</div>
+          <div style="background:#f1f1f1;border-radius:3px;padding:18px 14px;margin-top:10px">
+            <div style="display:grid;grid-template-columns:64px 1fr;gap:12px">
+              <img src="assets/article/book-1.png" alt="" style="width:64px;height:92px;object-fit:contain">
+              <div>
+                <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                <div style="margin-top:3px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div>
+                <div style="display:flex;gap:12px;margin-top:8px;align-items:center;flex-wrap:wrap">
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+              <div style="font-size:20px;color:#76c7d1">180 р</div>
+              <a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 32px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+            </div>
+            <div style="height:1px;background:#e1e1e1;margin:16px 0"></div>
+            <div style="display:grid;grid-template-columns:64px 1fr;gap:12px">
+              <img src="assets/article/book-2.png" alt="" style="width:64px;height:92px;object-fit:contain">
+              <div>
+                <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                <div style="margin-top:3px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div>
+                <div style="display:flex;gap:12px;margin-top:8px;align-items:center;flex-wrap:wrap">
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+              <div style="font-size:20px;color:#76c7d1">180 р</div>
+              <a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 32px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+            </div>
+            <div style="height:1px;background:#e1e1e1;margin:16px 0"></div>
+            <div style="display:grid;grid-template-columns:64px 1fr;gap:12px">
+              <img src="assets/article/book-3.png" alt="" style="width:64px;height:92px;object-fit:contain">
+              <div>
+                <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                <div style="margin-top:3px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div>
+                <div style="display:flex;gap:12px;margin-top:8px;align-items:center;flex-wrap:wrap">
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+              <div style="font-size:20px;color:#76c7d1">180 р</div>
+              <a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 32px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+            </div>
+            <div style="height:1px;background:#e1e1e1;margin:16px 0"></div>
+            <div style="display:grid;grid-template-columns:64px 1fr;gap:12px">
+              <img src="assets/article/book-4.png" alt="" style="width:64px;height:92px;object-fit:contain">
+              <div>
+                <div style="font-size:11px;color:#939598">Монах Лазарь (Афанасьев)</div>
+                <div style="margin-top:3px;font-size:15px;line-height:1.35;font-weight:700;color:#462512">Просто мама Просто мама Просто мама</div>
+                <div style="display:flex;gap:12px;margin-top:8px;align-items:center;flex-wrap:wrap">
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#d3a086"><svg viewBox="0 0 14 12" width="13" height="11" aria-hidden="true"><rect x="0.7" y="0.7" width="12.6" height="10.6" rx="1.5" fill="none" stroke="#d3a086" stroke-width="1.2"></rect><path d="M5.5 3.6 L9.4 6 L5.5 8.4 Z" fill="#d3a086"></path></svg>видео отзыв</span>
+                  <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#76c7d1"><svg viewBox="0 0 14 13" width="13" height="12" aria-hidden="true"><ellipse cx="7" cy="5.6" rx="6.2" ry="4.9" fill="none" stroke="#76c7d1" stroke-width="1.2"></ellipse><path d="M3.8 9.8 L3.2 12.4 L6.4 10.3 Z" fill="#76c7d1"></path></svg>4 отзыва</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+              <div style="font-size:20px;color:#76c7d1">180 р</div>
+              <a href="#" style="background:#76c7d1;color:#fff;font-size:14px;border-radius:2px;padding:7px 32px;transition:background .15s" style-hover="background:#55b3bb;color:#fff">В корзину</a>
+            </div>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#d3a086;margin:28px 0 0;padding-left:4px">СОБЫТИЯ</div>
+          <sc-for list="{{ events }}" as="ev" hint-placeholder-count="7">
+            <div style="padding:14px 4px;border-bottom:1px solid #e8e8e8">
+              <div style="font-size:13px;color:#76c7d1">{{ ev.date }}</div>
+              <div style="margin-top:6px;font-size:15px;line-height:1.5;color:#565656">{{ ev.text }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+
+    <!-- ===== Другие материалы по теме ===== -->
+    <div style="margin-top:46px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#d3a086">ДРУГИЕ МАТЕРИАЛЫ ПО ТЕМЕ</div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:19px;margin-top:16px;{{ ov.relGrid }}">
+        <sc-for list="{{ cards1 }}" as="c" hint-placeholder-count="7">
+          <a href="#" style="display:block;min-width:0">
+            <img src="{{ c.img }}" alt="" style="width:100%;height:165px;object-fit:cover;display:block;{{ ov.relImg }}">
+            <div style="margin-top:12px;font-size:16px;line-height:1.3;font-weight:700;color:#462512;transition:color .15s;{{ ov.relTitle }}" style-hover="color:#c98d6d">{{ c.t }}</div>
+            <div style="margin-top:8px;font-size:13px;line-height:1.5;color:#939598">{{ c.e }}</div>
+          </a>
+        </sc-for>
+      </div>
+
+      <div style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#d3a086;margin-top:40px">СОБЫТИЯ</div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:19px;margin-top:16px;{{ ov.relGrid }}">
+        <sc-for list="{{ cards2 }}" as="c" hint-placeholder-count="7">
+          <a href="#" style="display:block;min-width:0">
+            <img src="{{ c.img }}" alt="" style="width:100%;height:165px;object-fit:cover;display:block;{{ ov.relImg }}">
+            <div style="margin-top:12px;font-size:16px;line-height:1.3;font-weight:700;color:#462512;transition:color .15s;{{ ov.relTitle }}" style-hover="color:#c98d6d">{{ c.t }}</div>
+            <div style="margin-top:8px;font-size:13px;line-height:1.5;color:#939598">{{ c.e }}</div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- ===== Футер ===== -->
+    <div style="margin-top:48px;border-top:1px solid #e1e1e1;padding:26px 0 64px">
+      <div style="display:grid;grid-template-columns:555px 1fr;gap:24px;align-items:start;{{ ov.footGrid }}">
+        <div style="font-size:13px;line-height:1.6;color:#939598">Православный интернет-магазин Русский Паломник предлагает широкий выбор православных фильмов, книг и песнопений. Наш интернет-магазин существует уже более пяти лет и здесь Вы можете купить православные книги и фильмы по издательским ценам. Доставка православной литературы - почтой России или по Москве курьером. Книжный магазин «Русский Паломник» - православные книги и фильмы почтой!</div>
+        <div style="font-size:13px;font-style:italic;color:#ca7350;text-align:right;{{ ov.footErr }}">Нашли ошибку? - Выделите и нажмите Ctrl + Enter.</div>
+      </div>
+      <div style="margin-top:26px;text-align:center;font-size:13px;line-height:1.75;color:#939598">© Православный интернет-магазин и православное издательство «Русский Паломник»<br>8 (800) 775-04-31 (звонок по России бесплатный), +7 (495) 22-55-441</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;viewport&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;auto&quot;, &quot;desktop&quot;, &quot;tablet&quot;, &quot;mobile&quot;], &quot;default&quot;: &quot;auto&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Превью&quot;, &quot;description&quot;: &quot;Принудительный брейкпоинт (auto — по ширине окна: &lt; 768 мобильный, 768–1024 планшет, ≥ 1024 десктоп)&quot; },
+  &quot;showBanner&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Сайдбар&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    w: (typeof window !== "undefined" ? window.innerWidth : 1600),
+    menuOpen: false,
+    journalOpen: false,
+    showAllBooks: false,
+  };
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    this._onKey = (e) => { if (e.key === "Escape") this.setState({ menuOpen: false }); };
+    window.addEventListener("resize", this._onResize);
+    window.addEventListener("keydown", this._onKey);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    window.removeEventListener("keydown", this._onKey);
+  }
+
+  bp() {
+    const forced = this.props.viewport ?? "auto";
+    if (forced !== "auto") return forced;
+    const w = this.state.w;
+    if (w < 768) return "mobile";   // < 48rem
+    if (w < 1024) return "tablet";  // 48–64rem
+    return "desktop";               // ≥ 64rem
+  }
+
+  renderVals() {
+    const bp = this.bp();
+    const isDesktop = bp === "desktop";
+    const isTablet = bp === "tablet";
+    const isMobile = bp === "mobile";
+    const isCompact = !isDesktop;
+
+    // Строки-оверрайды: на десктопе пустые (базовые инлайн-стили = точный макет 1600)
+    const ov = isDesktop ? {
+      container: "", mainGrid: "", h1: "", tline: "", railGrid: "", railPad: "",
+      avatar: "", textTop: "", para: "", textPad: "", quote: "",
+      shareWrap: "", shareItem: "", shareItemC: "", hideMid: "", ruleDisp: "display:none;", roleDisp: "",
+      relGrid: "", relImg: "", relTitle: "", footGrid: "", footErr: "", logoH: "",
+    } : isTablet ? {
+      container: "max-width:100%;padding:0 22px;",
+      mainGrid: "display:block;",
+      h1: "font-size:19px;",
+      tline: "font-size:19px;color:#462512;",
+      railGrid: "grid-template-columns:153px 1fr;",
+      railPad: "",
+      avatar: "width:100px;height:100px;",
+      textTop: "",
+      para: "font-size:15px;line-height:26px;",
+      textPad: "padding-left:0;",
+      quote: "font-size:19px;",
+      shareWrap: "margin-left:0;gap:8px;",
+      shareItem: "flex:1;justify-content:space-between;",
+      shareItemC: "flex:1;justify-content:center;",
+      hideMid: "display:none;",
+      ruleDisp: "",
+      roleDisp: "display:none;",
+      relGrid: "grid-template-columns:repeat(3,1fr);gap:24px;",
+      relImg: "height:216px;",
+      relTitle: "font-size:20px;",
+      footGrid: "grid-template-columns:1fr auto;",
+      footErr: "",
+      logoH: "height:108px;",
+    } : {
+      container: "max-width:100%;padding:0 15px;",
+      mainGrid: "display:block;",
+      h1: "font-size:17px;",
+      tline: "font-size:15px;",
+      railGrid: "display:block;",
+      railPad: "",
+      avatar: "width:90px;height:90px;",
+      textTop: "margin-top:18px;",
+      para: "font-size:15px;line-height:26px;",
+      textPad: "padding-left:0;",
+      quote: "font-size:18px;",
+      shareWrap: "margin-left:0;gap:8px;",
+      shareItem: "", shareItemC: "", hideMid: "", ruleDisp: "display:none;", roleDisp: "",
+      relGrid: "grid-template-columns:1fr;gap:26px;",
+      relImg: "height:200px;",
+      relTitle: "font-size:17px;",
+      footGrid: "grid-template-columns:1fr;",
+      footErr: "text-align:left;",
+      logoH: "height:62px;",
+    };
+
+    const journalItems = [
+      "Смысл жизни человека", "Православные фильмы", "Об именинах",
+      "Великая Дивеевская Тайна", "Евлогите. Акрополь и христианский", "Парфенон",
+      "Блаженный о. Адріанъ", "О. Владимир Шикин", "Посещения Рая Преп. Іоной Кіевскимъ",
+      "Князь Владимир Палей", "Преподобный Антоній Грошевникъ",
+    ];
+
+    const eShort = "Календарь «Целебник» подготовлен для вас";
+    const eMed = "Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей";
+    const eLong = "Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга,";
+    const A = "assets/article/";
+    const allCards1 = [
+      { img: A + "rel-1.jpg", t: "Митрополит Киевский Онуфрий: Меняются политические лозунги,", e: "Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен" },
+      { img: A + "rel-2.jpg", t: "«Бог в душе»… А как ты смог пригласить Его туда?", e: eMed },
+      { img: A + "rel-3.jpg", t: "«Люди, как нам прокормить детей?»", e: eLong },
+      { img: A + "rel-4.jpg", t: "Любит ли Иисус Кончиту Вурст?", e: eLong },
+      { img: A + "rel-5.jpg", t: "«В начале: падение и грех» – лекция отца Джона Пантелеимона Мануссакиса (+видео)", e: eShort },
+      { img: A + "rel-6.jpg", t: "Слово Патриарха Кирилла на Собрании Предстоятелей Поместных Церквей (полный текст+видео)", e: eShort },
+      { img: A + "rel-7.jpg", t: "«Разбил окно сектанту? Наш человек!»", e: eMed },
+    ];
+    const allCards2 = [
+      { img: A + "rel-8.jpg", t: "О лженауке, будущем физики и директорах школ, ворующих диссертации", e: eMed },
+      { img: A + "rel-9.jpg", t: "Каллиграфия в Церкви, или О битве со смыслами, управлении словами и восхвалении имени Божьего", e: eShort },
+      { img: A + "rel-10.jpg", t: "Онкологическое отделение без химиотерапевта?", e: eLong },
+      { img: A + "rel-11.jpg", t: "Тайга и тундра вокруг храмов в Москве? Священники против", e: eLong },
+      { img: A + "rel-12.jpg", t: "10 статей о Ленине", e: "Календарь «Целебник» подготовлен для вас православными врачами и журналистами, рассмотрен и одобрен Обществом православных врачей Санкт-Петербурга, отрецензирован и рекомендован к печати" },
+      { img: A + "rel-13.jpg", t: "Пожили хорошо и хватит!", e: eLong },
+      { img: A + "rel-14.jpg", t: "Марина Журинская. Свидетельство", e: eLong },
+    ];
+
+    const events = [];
+    for (let i = 0; i < 7; i++) {
+      events.push({
+        date: "23 января 2016",
+        text: "Схи-Игуменія Софія въ юныя годы. Игуменія Софія, будучи вѣтвью оптинскаго древа Святой Руси, усѣченнаго сѣкирой ленинскихъ лютыхъ",
+      });
+    }
+
+    const menuOpen = this.state.menuOpen;
+    return {
+      bp, isDesktop, isTablet, isMobile, isCompact,
+      showOverlay: isCompact && menuOpen,
+      panelShift: menuOpen && isDesktop ? "transform:translateX(0);" : "transform:translateX(-104%);",
+      caretFlip: this.state.journalOpen ? "transform:rotate(180deg);" : "",
+      journalOpen: this.state.journalOpen,
+      ov,
+      journalItems,
+      cards1: isDesktop ? allCards1 : allCards1.slice(0, 3),
+      cards2: isDesktop ? allCards2 : allCards2.slice(0, 3),
+      events,
+      bannerOn: this.props.showBanner ?? true,
+      isMobileList: false,
+      isMobileCarousel: isMobile,
+      hideExtraBooks: "",
+      showMoreStrip: false,
+      author2Img: isTablet ? "assets/article/avatar-1.jpg" : "assets/article/avatar-2.jpg",
+      author2L1: isTablet ? "ОТЕЦ" : "ЕЛЕНА",
+      author2L2: isTablet ? "ДМИТРИЙ" : "КУЗНЕЦОВА",
+      onBurger: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      onCloseMenu: () => this.setState({ menuOpen: false }),
+      onToggleJournal: () => this.setState((s) => ({ journalOpen: !s.journalOpen })),
+      onShowBooks: () => this.setState({ showAllBooks: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>
