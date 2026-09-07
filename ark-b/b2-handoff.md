@@ -19,8 +19,14 @@ P1 — код индекса и тесты. P5 закрыт, кроме п. 6 (�
 | `0008-m-adr-edinoe-prostranstvo-statei-i-razdely-lent.md` | `journal-docs/adr/` (заменить) |
 | `b2-handoff.md` | `journal-docs/ark-b/` |
 | `schema.ts` | `src/lib/content/` (заменить) |
-| `filesystem-content-source.ts` | `src/lib/content/` — под ИМЕНЕМ существующего модуля фабрики |
-| `article-index.test.ts` | рядом с модулем фабрики; синтаксис Vitest — при Jest заменить `vi` на `jest` |
+| `filesystem-source.ts` | `src/lib/content/` (заменить) |
+| `article-index.test.ts` | `src/lib/content/` |
+
+В `content-source.ts` удалить шесть сигнатур прежнего захода
+(`listArticlesAboutRP`, `listRPArticlesByYear` и др.) — в порту остаются
+`getArticle`, `listArticles`, `getArticleSlugs`, `getSortedIndex`; шесть
+методов P2 возвращаются в порт финальными сигнатурами из декомпозиции
+в начале P2.
 
 После замены схемы: `tsc` покажет все места с `'vypusk'` — убрать
 (карта разделов, если уже есть; тесты схемы: вариант выпуска → вариант
